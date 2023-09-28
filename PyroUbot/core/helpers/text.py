@@ -7,18 +7,18 @@ from PyroUbot.core.database import get_expired_date
 class MSG:
     def DEAK(X):
         return f"""
-<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
-<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
-<b>├ ɪᴅ:</b> <code>{X.me.id}</code>
-<b>╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
+<b>ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
+<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+<b>ɪᴅ:</b> <code>{X.me.id}</code>
+<b>ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
 """
             
     def EXPIRED_MSG_BOT(X):
         return f"""
-<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
-<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
-<b>├ ɪᴅ:</b> <code>{X.me.id}</code>
-<b>╰ ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴛᴇʟᴀʜ ʜᴀʙɪs</b>
+<b>ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
+<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+<b>ɪᴅ:</b> <code>{X.me.id}</code>
+<b>ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴛᴇʟᴀʜ ʜᴀʙɪs</b>
 """
 
     
@@ -51,10 +51,10 @@ class MSG:
     async def USERBOT(count):
         expired_date = await get_expired_date(ubot._ubot[int(count)].me.id)
         return f"""
-<b>❏ ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{int(count) + 1}/{len(ubot._ubot)}</code>
-<b> ├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[int(count)].me.id}>{ubot._ubot[int(count)].me.first_name} {ubot._ubot[int(count)].me.last_name or ''}</a> 
-<b> ├ ɪᴅ:</b> <code>{ubot._ubot[int(count)].me.id}</code>
-<b> ╰ ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
+<b>ᴜsᴇʀʙᴏᴛ ᴋᴇ</b> <code>{int(count) + 1}/{len(ubot._ubot)}</code>
+<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={ubot._ubot[int(count)].me.id}>{ubot._ubot[int(count)].me.first_name} {ubot._ubot[int(count)].me.last_name or ''}</a> 
+<b>ɪᴅ:</b> <code>{ubot._ubot[int(count)].me.id}</code>
+<b>ᴇxᴘɪʀᴇᴅ</b> <code>{expired_date.strftime('%d-%m-%Y')}</code>
 """
 
     def POLICY():
