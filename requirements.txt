@@ -21,7 +21,7 @@ aiohttp
 gpytranslate
 gtts
 telegraph
-pyromod==1.5
+pyromod==1.1
 openai
 youtube-search-python
 pymongo
