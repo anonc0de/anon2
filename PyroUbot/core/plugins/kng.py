@@ -90,7 +90,7 @@ async def kang(client, message):
 
         u_name = user.username
         u_name = "@" + u_name if u_name else user.first_name or user.id
-        packname = f"ꜱᴛɪᴄᴋᴇʀꜱ_ᴘᴀᴄᴋ{user.id}_V{pack}"
+        packname = f"Sticker_u{user.id}_v{pack}"
         custom_packnick = f"{u_name} ᴘᴀᴄᴋ"
         packnick = f"{custom_packnick} Vol.{pack}"
         cmd = "/newpack"
