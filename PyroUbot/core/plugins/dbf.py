@@ -37,23 +37,6 @@ async def prem_user(client, message):
         await Tm.edit(
             f"✅ {get_id} ᴛᴇʟᴀʜ ᴅɪ ᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_bulan} ʙᴜʟᴀɴ\n\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}"
         )
-        await bot.send_message(
-            OWNER_ID,
-            f"• {message.from_user.id} ─> {get_id} •",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            "👤 ᴘʀᴏғɪʟ",
-                            callback_data=f"profil {message.from_user.id}",
-                        ),
-                        InlineKeyboardButton(
-                            "ᴘʀᴏғɪʟ 👤", callback_data=f"profil {get_id}"
-                        ),
-                    ],
-                ]
-            ),
-        )
     else:
         await Tm.delete()
         await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
