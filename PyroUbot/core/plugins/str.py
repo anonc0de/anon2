@@ -9,26 +9,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from PyroUbot import *
 
 
-async def send_msg_to_owner(client, message):
-    if message.from_user.id == OWNER_ID:
-        return
-    else:
-        buttons = [
-            [
-                InlineKeyboardButton(
-                    "👤 ᴘʀᴏꜰɪʟ", callback_data=f"profil {message.from_user.id}"
-                ),
-                InlineKeyboardButton(
-                    "ᴊᴀᴡᴀʙ 💬", callback_data=f"jawab_pesan {message.from_user.id}"
-                ),
-            ],
-        ]
-        await client.send_message(
-            OWNER_ID,
-            f"<a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>\n\n<code>{message.text}</code>",
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
-
 
 async def ping_cmd(client, message):
     start = datetime.now()
@@ -53,7 +33,6 @@ async def ping_cmd(client, message):
 
 
 async def start_cmd(client, message):
-    await send_msg_to_owner(client, message)
     if len(message.command) < 2:
         buttons = Button.start(message)
         msg = MSG.START(message)
