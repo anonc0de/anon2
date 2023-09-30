@@ -68,7 +68,7 @@ class Button:
                     "📢 ɢʀᴏᴜᴘ sᴜᴘᴘᴏʀᴛ", url="https://t.me/MutualanConsterly"
                 ),
                 InlineKeyboardButton(
-                    "ᴘᴇʀᴛᴀɴʏᴀᴀɴ ‼️", callback_data="support"
+                    "ᴘᴇʀᴛᴀɴʏᴀᴀɴ ‼️", url="https://t.me/ohmyshinx"
                 ),
             ],
         ]
