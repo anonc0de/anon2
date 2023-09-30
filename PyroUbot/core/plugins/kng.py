@@ -234,7 +234,7 @@ async def kang(client, message):
         if os.path.exists(str(media_)):
             os.remove(media_)
         user_info = await client.resolve_peer("@stickers")
-        await client.delete_messages(peer=user_info, max_id=0, revoke=True))
+        await client.delete_messages(peer=user_info, max_id=0, revoke=True)
 
 
 async def get_response(message, client):
