@@ -16,9 +16,8 @@ async def loadPlugins():
     modules = loadModule()
     for mod in modules:
         imported_module = import_module(f"PyroUbot.modules.{mod}")
-        module_name = imported_module.__MODULE__
+        module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
         if module_name:
-            module_name = module_name.replace(" ", "_").lower()
             HELP_COMMANDS[module_name] = imported_module
     print(f"[🤖 @{bot.me.username} 🤖] [🔥 TELAH BERHASIL DIAKTIFKAN! 🔥]")
     TM = await bot.send_message(
