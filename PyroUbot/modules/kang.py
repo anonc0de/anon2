@@ -19,4 +19,4 @@ __HELP__ = f"""
 
 @PY.UBOT("kang")
 async def _(client, message):
-    await kang_cmd_bot(client, message)
+    await kang(client, message)
