@@ -37,7 +37,6 @@ from PyroUbot.core.plugins.sid import *
 from PyroUbot.core.plugins.smd import *
 from PyroUbot.core.plugins.smt import *
 from PyroUbot.core.plugins.spm import *
-from PyroUbot.core.plugins.spt import *
 from PyroUbot.core.plugins.srh import *
 from PyroUbot.core.plugins.str import *
 from PyroUbot.core.plugins.tny import *
