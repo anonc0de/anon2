@@ -19,9 +19,13 @@ async def alive_cmd(client, message):
 async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
     for my in ubot._ubot:
-        if int(get_id[2]) == my.me.id:
-            get_exp = await get_expired_date(my.me.id)
+        get_exp = await get_expired_date(my.me.id)
+        if get_exp is None:
+            exp = ""
+        else:
             exp = get_exp.strftime("%d-%m-%Y")
+            expired = f"<code>{exp}</code>"
+        if int(get_id[2]) == my.me.id:
             if my.me.id == OWNER_ID:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ꜰᴏᴜɴᴅᴇʀ]</code>"
             elif my.me.id in await get_seles():
@@ -36,7 +40,7 @@ async def alive_query(client, inline_query):
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
     sᴛᴀᴛᴜs: {status} 
-        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{exp}</code> 
+        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{expired}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
         ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
         ᴘᴇᴇʀ_ᴜsᴇʀs: <code>17 ᴜsᴇʀs</code>
