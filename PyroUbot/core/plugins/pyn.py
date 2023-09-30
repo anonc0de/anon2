@@ -111,9 +111,7 @@ async def success_failed_home_callback(client, callback_query):
         )
         buttons_success = [
             [
-                InlineKeyboardButton(
-                    "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}"
-                )
+                InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data=f"0_cls")
             ],
         ]
         await add_prem(get_user.id)
@@ -145,9 +143,7 @@ async def success_failed_home_callback(client, callback_query):
         )
         buttons_failed = [
             [
-                InlineKeyboardButton(
-                    "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏꜰɪʟ 👤", callback_data=f"profil {get_user.id}"
-                )
+                InlineKeyboardButton("ᴛᴜᴛᴜᴘ", callback_data=f"0_cls")
             ],
         ]
         return await callback_query.edit_message_text(
