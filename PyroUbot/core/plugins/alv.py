@@ -21,15 +21,15 @@ async def alive_query(client, inline_query):
     for my in ubot._ubot:
         get_exp = await get_expired_date(my.me.id)
         if get_exp is None:
-            exp = ""
+            exp = "𝘜𝘯𝘭𝘪𝘮𝘪𝘵𝘦𝘥"
         else:
             exp = get_exp.strftime("%d-%m-%Y")
             expired = f"<code>{exp}</code>"
         if int(get_id[2]) == my.me.id:
             if my.me.id == OWNER_ID:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ꜰᴏᴜɴᴅᴇʀ]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘍𝘰𝘶𝘯𝘥𝘦𝘳]</code>"
             elif my.me.id in await get_seles():
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘈𝘥𝘮𝘪𝘯]</code>"
             else:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b>"
             button = Button.alive(get_id)
