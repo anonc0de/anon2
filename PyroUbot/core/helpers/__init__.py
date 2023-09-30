@@ -2,7 +2,6 @@ from PyroUbot.core.helpers.client import *
 from PyroUbot.core.helpers.font_tool import *
 from PyroUbot.core.helpers.get_file_id import *
 from PyroUbot.core.helpers.inline import *
-from PyroUbot.core.helpers.kang_tool import *
 from PyroUbot.core.helpers.misc import *
 from PyroUbot.core.helpers.openAi import *
 from PyroUbot.core.helpers.text import *
