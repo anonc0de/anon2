@@ -79,7 +79,6 @@ class MSG:
 
 
 async def sending_user(user_id):
-    try:
         await bot.send_message(
             user_id,
             "💬 sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ",
