@@ -95,4 +95,3 @@ async def sending_user(user_id):
             ),
             disable_web_page_preview=True,
         )
-        
