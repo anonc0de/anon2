@@ -1,11 +1,29 @@
 import asyncio
+import base64
+import math
 import os
 import shlex
 import textwrap
 from io import BytesIO
+from time import time
 
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
+from pyrogram.enums import ChatType
+from pyrogram.errors import *
+
+
+async def encode(string):
+    string_bytes = string.encode("ascii")
+    base64_bytes = base64.urlsafe_b64encode(string_bytes)
+    return (base64_bytes.decode("ascii")).strip("=")
+
+
+async def decode(base64_string):
+    base64_string = base64_string.strip("=")
+    base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("ascii")
+    string_bytes = base64.urlsafe_b64decode(base64_bytes)
+    return string_bytes.decode("ascii")
 
 
 
