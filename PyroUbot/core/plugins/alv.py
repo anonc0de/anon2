@@ -18,9 +18,9 @@ async def alive_cmd(client, message):
 
 async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
-    get_exp = await get_expired_date(my.me.id)
     for my in ubot._ubot:
         if int(get_id[2]) == my.me.id:
+            get_exp = await get_expired_date(my.me.id)
             try:
                 exp = get_exp.strftime("%d-%m-%Y")
                 expired = f"<code>{exp}</code>"
