@@ -10,7 +10,6 @@ from PyroUbot.core.plugins.ip import *
 from PyroUbot.core.plugins.adb import *
 from PyroUbot.core.plugins.adm import *
 from PyroUbot.core.plugins.alv import *
-from PyroUbot.core.plugins.asp import *
 from PyroUbot.core.plugins.cpy import *
 from PyroUbot.core.plugins.ctr import *
 from PyroUbot.core.plugins.cvr import *
