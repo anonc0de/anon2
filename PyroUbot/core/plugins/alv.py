@@ -20,12 +20,15 @@ async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
     for my in ubot._ubot:
         if int(get_id[2]) == my.me.id:
-            get_exp = await get_expired_date(my.me.id)
             try:
-                exp = get_exp.strftime("%d-%m-%Y")
-                expired = f"<code>{exp}</code>"
-            except:
-                exp = "𝘜𝘯𝘭𝘪𝘮𝘪𝘵𝘦𝘥"
+                peer = my._get_my_peer[my.me.id]
+                users = len(peer["pm"])
+                group = len(peer["gc"])
+            except Exception:
+                users = random.randrange(await my.get_dialogs_count())
+                group = random.randrange(await my.get_dialogs_count())
+            get_exp = await get_expired_date(my.me.id)
+            exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘍𝘰𝘶𝘯𝘥𝘦𝘳]</code>"
             elif my.me.id in await get_seles():
