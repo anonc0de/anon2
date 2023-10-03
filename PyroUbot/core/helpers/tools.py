@@ -35,6 +35,8 @@ def get_message(message):
 
     return chats   
 
+
+
 async def encode(string):
     string_bytes = string.encode("ascii")
     base64_bytes = base64.urlsafe_b64encode(string_bytes)
