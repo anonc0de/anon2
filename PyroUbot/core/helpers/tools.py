@@ -13,6 +13,32 @@ from pyrogram.enums import ChatType
 from pyrogram.errors import *
 
 
+def get_message(message):
+    msg = (
+        message.reply_to_message
+        if message.reply_to_message
+        else ""
+        if len(message.command) < 2
+        else message.text.split(None, 1)[1]
+    )
+    return msg
+
+
+async def get_global_id(client, query):
+    chats = []
+    chat_types = {
+        "global": [ChatType.CHANNEL, ChatType.GROUP, ChatType.SUPERGROUP],
+        "group": [ChatType.GROUP, ChatType.SUPERGROUP],
+        "users": [ChatType.PRIVATE],
+    }
+    async for dialog in client.get_dialogs():
+        if dialog.chat.type in chat_types[query]:
+            chats.append(dialog.chat.id)
+
+    return chats
+
+
+
 async def encode(string):
     string_bytes = string.encode("ascii")
     base64_bytes = base64.urlsafe_b64encode(string_bytes)
