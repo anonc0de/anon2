@@ -252,6 +252,7 @@ async def bikin_ubot(client, callback_query):
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
     text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot_msg.edit(text_done)
+    await install_my_peer(new_client)
     try:
         await new_client.join_chat("ohmyshinch")
         await new_client.join_chat("MutualanConsterly")
