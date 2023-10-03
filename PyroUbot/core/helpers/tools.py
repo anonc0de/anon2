@@ -22,22 +22,7 @@ def get_message(message):
         else message.text.split(None, 1)[1]
     )
     return msg
-
-
-async def get_global_id(client, query):
-    chats = []
-    chat_types = {
-        "global": [ChatType.CHANNEL, ChatType.GROUP, ChatType.SUPERGROUP],
-        "group": [ChatType.GROUP, ChatType.SUPERGROUP],
-        "users": [ChatType.PRIVATE],
-    }
-    async for dialog in client.get_dialogs():
-        if dialog.chat.type in chat_types[query]:
-            chats.append(dialog.chat.id)
-
-    return chats
-
-
+    
 
 async def encode(string):
     string_bytes = string.encode("ascii")
