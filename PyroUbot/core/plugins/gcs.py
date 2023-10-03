@@ -30,7 +30,8 @@ async def get_broadcast_id(client, query):
             chats.append(dialog.chat.id)
 
     return chats
-    
+
+
 
 async def broadcast_group_cmd(client, message):
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ...", quote=True)
@@ -54,6 +55,7 @@ async def broadcast_group_cmd(client, message):
                 await send.copy(chat_id)
             else:
                 await client.send_message(chat_id, send)
+            await asyncio.sleep(0.8)
             done += 1
         except FloodWait as e:
             await asyncio.sleep(e.value)
@@ -89,6 +91,7 @@ async def broadcast_users_cmd(client, message):
                 await send.copy(chat_id)
             else:
                 await client.send_message(chat_id, send)
+            await asyncio.sleep(0.8)
             done += 1
         except FloodWait as e:
             await asyncio.sleep(e.value)
