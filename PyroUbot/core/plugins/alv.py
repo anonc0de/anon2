@@ -46,8 +46,8 @@ async def alive_query(client, inline_query):
         ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{expired}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
         ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
-        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>17 ᴜsᴇʀs</code>
-        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>34 ɢʀᴏᴜᴘ</code>
+        ᴘᴇᴇʀ_ᴜsᴇʀs: <code> {users} ᴜsᴇʀs</code>
+        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code> {group} ɢʀᴏᴜᴘ</code>
         sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
 """
             await client.answer_inline_query(
