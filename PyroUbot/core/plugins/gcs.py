@@ -8,16 +8,6 @@ from PyroUbot import *
 from PyroUbot.config import *
 
 
-def get_message(message):
-    msg = (
-        message.reply_to_message
-        if message.reply_to_message
-        else ""
-        if len(message.command) < 2
-        else " ".join(message.command[1:])
-    )
-    return msg
-
 
 async def get_broadcast_id(client, query):
     chats = []
