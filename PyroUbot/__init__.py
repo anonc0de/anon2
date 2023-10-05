@@ -57,6 +57,7 @@ class Ubot(Client):
     _ubot = []
     _prefix = {}
     _get_my_id = []
+    _translate = {}
     _get_my_peer = {}
 
     def __init__(self, **kwargs):
@@ -129,6 +130,7 @@ class Ubot(Client):
             self._prefix[self.me.id] = ["."]
         self._ubot.append(self)
         self._get_my_id.append(self.me.id)
+        self._translate[self.me.id] = "id"
         print(f"[𝐈𝐍𝐅𝐎] - ({self.me.id}) - 𝐒𝐓𝐀𝐑𝐓𝐄𝐃")
 
 
