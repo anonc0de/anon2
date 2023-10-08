@@ -15,7 +15,6 @@ async def need_gratis(client, callback_query):
     user_id = callback_query.from_user.id
     if user_id in ubot._get_my_id:
         return await callback_query.edit_message_text(
-            user_id,
             "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
     elif len(ubot._ubot) + 1 > MAX_BOT:
@@ -23,7 +22,6 @@ async def need_gratis(client, callback_query):
             [InlineKeyboardButton("🗑️ ᴛᴜᴛᴜᴘ 🗑️", callback_data="0_cls")],
         ]
         return await callback_query.edit_message_text(
-            user_id,
             f"""
 <b>❌ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ!</b>
 
@@ -37,7 +35,6 @@ async def need_gratis(client, callback_query):
     else:
         buttons = [[InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="gratis")]]
         return await callback_query.edit_message_text(
-            user_id,
             """
 <b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴋᴀɴ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
 
