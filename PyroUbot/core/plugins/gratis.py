@@ -235,3 +235,12 @@ async def bikin_gratis(client, callback_query):
         ),
         disable_web_page_preview=True,
     )
+
+
+async def is_cancel(callback_query, text):
+    if text.startswith("/cancel"):
+        await bot.send_message(
+            callback_query.from_user.id, "<b>ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs!</b>"
+        )
+        return True
+    return False
