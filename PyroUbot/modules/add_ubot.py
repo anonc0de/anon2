@@ -1,6 +1,16 @@
 from PyroUbot import *
 
 
+@PY.CALLBACK("grts")
+async def _(client, callback_query):
+    await need_gratis(client, callback_query)
+
+
+@PY.CALLBACK("gratis")
+async def _(client, callback_query):
+    await bikin_gratis(client, callback_query)
+
+
 @PY.CALLBACK("pler")
 async def _(client, callback_query):
     await ohaja(client, callback_query)
