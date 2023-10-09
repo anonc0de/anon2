@@ -10,7 +10,6 @@ class FILTERS:
     ME_GROUP = filters.me & filters.group
     ME_OWNER = filters.me & filters.user(OWNER_ID)
     ME_USER = filters.me & filters.user(USER_ID)
-    PM = filters.me & filters.private
     
 
 class PY:
