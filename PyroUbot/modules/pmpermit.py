@@ -56,6 +56,7 @@ __HELP__ = f"""
 )
 async def _(client, message):
     user = message.from_user
+    await forward_logs_private(client, message)
     pm_on = await get_vars(client.me.id, "PMPERMIT")
     if pm_on:
         if user.id in MSG_ID:
@@ -91,7 +92,7 @@ async def _(client, message):
                 peringatan = f"{FLOOD[user.id]} / {pm_limit}"
                 if pm_pic:
                     msg = await message.reply_photo(
-                        pm_pic, pm_msg.format(mention=rpk, warn=peringatan)
+                        pm_pic, caption=pm_msg.format(mention=rpk, warn=peringatan)
                     )
                 else:
                     msg = await message.reply(
@@ -230,3 +231,23 @@ async def delete_old_message(message, msg_id):
         await message._client.delete_messages(message.chat.id, msg_id)
     except:
         pass
+
+
+async def forward_logs_private(client, message):
+    logs = await get_vars(client.me.id, "ID_LOGS")
+    on_logs = await get_vars(client.me.id, "ON_LOGS")
+    if logs and on_logs:
+        user = message.chat
+        rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
+        link = f"[ᴋʟɪᴋ ᴅɪsɪɴɪ]({message.link})"
+        await client.send_message(
+            int(logs),
+            f"""
+<b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
+    <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:<b> <code>ᴘʀɪᴠᴀᴛᴇ</code>
+    <b>•> lʟɪɴᴋ ᴘᴇsᴀɴ:<b> {link}
+    
+<b>⤵️ ᴅɪʙᴀᴡᴀʜ ɪɴɪ ᴀᴅᴀʟᴀʜ ᴘᴇsᴀɴ ᴛᴇʀᴜsᴀɴ ᴅᴀʀɪ: {rpk}</b>
+""",
+        )
+        return await message.forward(int(logs))
