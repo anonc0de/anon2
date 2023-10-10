@@ -6,7 +6,7 @@ from gc import get_objects
 
 from pykeyboard import InlineKeyboard
 from pyrogram.types import (InlineKeyboardButton, InlineQueryResultArticle,
-                            InputTextMessageContent)
+                            InlineQueryResultPhoto, InputTextMessageContent)
 
 from PyroUbot import *
 
@@ -39,26 +39,33 @@ __HELP__ = """
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴛᴜʀ ᴠᴀʀɪᴀʙᴇʟ ᴛᴇxᴛ_ᴘᴍᴘᴇʀᴍɪᴛ ᴅᴀɴ ʟɪᴍɪᴛ_ᴘᴍ
 
    <b>•> ǫᴜᴇʀʏ:</b>
+       •> <code>PIC</code>
        •> <code>TEXT</code>
        •> <code>LIMIT</code>
 """
 
 
 @ubot.on_message(
-    filters.private & ~filters.bot & ~filters.service & filters.incoming, group=69
+    filters.private
+    & filters.incoming
+    & ~filters.me
+    & ~filters.bot
+    & ~filters.via_bot
+    & ~filters.service,
+    group=69,
 )
 async def _(client, message):
     user = message.from_user
     pm_on = await get_vars(client.me.id, "PMPERMIT")
     if pm_on:
-        if user.id in MSG_ID:
-            await delete_old_message(message, MSG_ID.get(user.id, 0))
         check = await get_pm_id(client.me.id)
         if user.id not in check:
             if user.id in FLOOD:
                 FLOOD[user.id] += 1
             else:
                 FLOOD[user.id] = 1
+            if user.id in MSG_ID:
+                await delete_old_message(message, MSG_ID.get(user.id, 0))
             pm_limit = await get_vars(client.me.id, "PM_LIMIT") or "5"
             if FLOOD[user.id] > int(pm_limit):
                 del FLOOD[user.id]
@@ -79,9 +86,17 @@ async def _(client, message):
                 )
                 MSG_ID[user.id] = int(msg.updates[0].id)
             else:
+                pm_pic = await get_vars(client.me.id, "PM_PIC")
                 rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
                 peringatan = f"{FLOOD[user.id]} / {pm_limit}"
-                msg = await message.reply(pm_msg.format(mention=rpk, warn=peringatan))
+                if pm_pic:
+                    msg = await message.reply_photo(
+                        pm_pic, pm_msg.format(mention=rpk, warn=peringatan)
+                    )
+                else:
+                    msg = await message.reply(
+                        pm_msg.format(mention=rpk, warn=peringatan)
+                    )
                 MSG_ID[user.id] = msg.id
 
 
@@ -91,7 +106,7 @@ async def _(client, message):
         return await message.reply(
             "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
         )
-    query = {"limit": "PM_LIMIT", "text": "PM_TEXT"}
+    query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC"}
     if message.command[1].lower() not in query:
         return await message.reply("<b>❌ ǫᴜᴇʀʏ ʏᴀɴɢ ᴅɪ ᴍᴀsᴜᴋᴋᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ</b>")
     query_str, value_str = (
@@ -99,6 +114,8 @@ async def _(client, message):
         message.text.split(None, 2)[2],
     )
     value = query[query_str]
+    if value_str.lower() == "none":
+        value_str = False
     await set_vars(client.me.id, value, value_str)
     return await message.reply(
         f"<b>✅ <code>{value}</code> ʙᴇʀʜᴀsɪʟ ᴅɪsᴇᴛᴛɪɴɢ ᴋᴇ: <code>{value_str}</code>"
@@ -131,9 +148,23 @@ async def _(client, inline_query):
     m = [obj for obj in get_objects() if id(obj) == int(get_id[1])][0]
     pm_msg = await get_vars(m._client.me.id, "PM_TEXT") or PM_TEXT
     pm_limit = await get_vars(m._client.me.id, "PM_LIMIT") or 5
+    pm_pic = await get_vars(m._client.me.id, "PM_PIC")
     rpk = f"[{m.from_user.first_name} {m.from_user.last_name or ''}](tg://user?id={m.from_user.id})"
     peringatan = f"{int(get_id[2])} / {pm_limit}"
     buttons, text = await pmpermit_button(pm_msg)
+    if pm_pic:
+        await client.answer_inline_query(
+            inline_query.id,
+            cache_time=0,
+            results=[
+                InlineQueryResultPhoto(
+                    photo_url=pm_pic,
+                    title="Dapatkan tombol!",
+                    caption=text.format(mention=rpk, warn=peringatan),
+                    reply_markup=buttons,
+                )
+            ],
+        )
     await client.answer_inline_query(
         inline_query.id,
         cache_time=0,
