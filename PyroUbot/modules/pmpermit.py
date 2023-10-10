@@ -107,7 +107,7 @@ async def _(client, message):
         return await message.reply(
             "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
         )
-    query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC"}
+    query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC", "logs": "ID_LOGS"}
     if message.command[1].lower() not in query:
         return await message.reply("<b>❌ ǫᴜᴇʀʏ ʏᴀɴɢ ᴅɪ ᴍᴀsᴜᴋᴋᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ</b>")
     query_str, value_str = (
@@ -140,6 +140,26 @@ async def _(client, message):
     text = "ᴅɪᴀᴋᴛɪғᴋᴀɴ" if value else "ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ"
 
     await set_vars(client.me.id, "PMPERMIT", value)
+    await message.reply(f"<b>✅ ᴘᴍᴘᴇʀᴍɪᴛ ʙᴇʀʜᴀsɪʟ {text}</b>")
+
+
+@PY.UBOT("pmlogs")
+async def _(client, message):
+    if len(message.command) < 2:
+        return await message.reply(
+            "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
+        )
+
+    toggle_options = {"off": False, "on": True}
+    toggle_option = message.command[1].lower()
+
+    if toggle_option not in toggle_options:
+        return await message.reply("ᴏᴘsɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ. Hᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ 'on' ᴀᴛᴀᴜ 'off'.")
+
+    value = toggle_options[toggle_option]
+    text = "ᴅɪᴀᴋᴛɪғᴋᴀɴ" if value else "ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ"
+
+    await set_vars(client.me.id, "PM_LOGS", value)
     await message.reply(f"<b>✅ ᴘᴍᴘᴇʀᴍɪᴛ ʙᴇʀʜᴀsɪʟ {text}</b>")
 
 
@@ -235,7 +255,7 @@ async def delete_old_message(message, msg_id):
 
 async def forward_logs_private(client, message):
     logs = await get_vars(client.me.id, "ID_LOGS")
-    on_logs = await get_vars(client.me.id, "ON_LOGS")
+    on_logs = await get_vars(client.me.id, "PM_LOGS")
     if logs and on_logs:
         user = message.chat
         rpk = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
