@@ -122,7 +122,13 @@ async def send_msg_cmd(client, message):
             return await message.reply("ᴋᴇᴛɪᴋ ʏᴀɴɢ ʙᴇɴᴇʀ")
         chat_id, chat_text = message.text.split(None, 2)[1:]
         try:
-            return await client.send_message(chat_id, chat_text)
+            if "_" in chat_id:
+                msg_id, to_chat = chat_id.split("_")
+                return await client.send_message(
+                    to_chat, chat_text, reply_to_message_id=int(msg_id)
+                )
+            else:
+                return await client.send_message(chat_id, chat_text)
         except Exception as t:
             return await message.reply(f"{t}")
 
