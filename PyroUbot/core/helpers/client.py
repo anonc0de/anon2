@@ -1,6 +1,8 @@
 from pyrogram import filters
+from pyrogram.enums import ChatType
 
 from PyroUbot import *
+
 
 class FILTERS:
     ME = filters.me
@@ -53,3 +55,16 @@ class PY:
             return wrapped_func
 
         return wrapper
+
+    def PRIVATE(func):
+        async def function(client, message):
+            user = message.from_user
+            rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
+            if not message.chat.type == ChatType.PRIVATE:
+                return await message.reply(
+                    f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ᴘʀɪᴠᴀᴛᴇ.</b>",
+                    quote=True,
+                )
+            return await func(client, message)
+
+        return function
