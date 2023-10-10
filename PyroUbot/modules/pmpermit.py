@@ -41,6 +41,7 @@ __HELP__ = f"""
    <b>•> ǫᴜᴇʀʏ:</b>
        •> <code>PIC</code>
        •> <code>TEXT</code>
+       •> <code>LOGS</code>
        •> <code>LIMIT</code>
 """
 
