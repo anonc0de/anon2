@@ -33,5 +33,4 @@ async def installPeer():
         pass
     await bot.send_message(OWNER_ID, "✅ sᴇᴍᴜᴀ ᴘᴇᴇʀ_ɪᴅ ʙᴇʀʜᴀsɪʟ ᴅɪɪɴsᴛᴀʟʟ")
 
-    client._get_my_peer[client_id] = {"pm": users, "gc": groups}
 
