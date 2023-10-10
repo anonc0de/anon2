@@ -160,7 +160,7 @@ async def _(client, message):
     text = "ᴅɪᴀᴋᴛɪғᴋᴀɴ" if value else "ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ"
 
     await set_vars(client.me.id, "PM_LOGS", value)
-    await message.reply(f"<b>✅ ᴘᴍᴘᴇʀᴍɪᴛ ʙᴇʀʜᴀsɪʟ {text}</b>")
+    await message.reply(f"<b>✅ ᴘᴍʟᴏɢs ʙᴇʀʜᴀsɪʟ {text}</b>")
 
 
 @PY.INLINE("pm_pr")
