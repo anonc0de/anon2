@@ -22,7 +22,7 @@ sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ ᴍᴀᴊɪᴋᴀɴ sᴀʏᴀ ᴍᴇᴍʙᴀ�
 
 async def pm_anu(client, message):
     user = message.from_user
-    await forward_logs_private(client, message)
+    await forward_logs(client, message)
     pm_on = await get_vars(client.me.id, "PMPERMIT")
     if pm_on:
         if user.id in MSG_ID:
