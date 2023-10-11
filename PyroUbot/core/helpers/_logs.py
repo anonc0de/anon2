@@ -28,10 +28,10 @@ async def forward_logs(client, message):
             int(logs),
             f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
-    <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:<b> <code>{type}</code>
-    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:<b> {link}
+    <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
+    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:</b> {link}
     
 <b>⤵️ ᴅɪʙᴀᴡᴀʜ ɪɴɪ ᴀᴅᴀʟᴀʜ ᴘᴇsᴀɴ ᴛᴇʀᴜsᴀɴ ᴅᴀʀɪ: {rpk}</b>
 """,
         )
-        return await message.forward(int(logs)
+        return await message.forward(int(logs))
