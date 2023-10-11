@@ -42,6 +42,6 @@ async def forward_logs(client, message):
     
 <b>⤵️ ᴘᴇsᴀɴ ᴛᴇʀᴜsᴀɴ 
     <b>•> ᴅᴀʀɪ :</b> <code>{rpk}</code>
-    <b>"> ᴘᴇsᴀɴ :</b> <code>{psn}</code>
+    <b>•> ᴘᴇsᴀɴ :</b> <code>{psn}</code>
 """,
         )
