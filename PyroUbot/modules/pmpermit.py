@@ -11,9 +11,6 @@ __HELP__ = f"""
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}pmpermit (on/off)</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴅᴀɴ ᴍᴇɴᴏɴᴀᴋᴛɪғᴋᴀɴ ᴘᴍᴘᴇʀᴍɪᴛ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}pmlogs (on/off)</code>
-  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴋᴛɪғᴋᴀɴ ᴅᴀɴ ᴍᴇɴᴏɴᴀᴋᴛɪғᴋᴀɴ ᴘᴍʟᴏɢs
-
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ok or {PREFIX[0]}setuju</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪᴊɪɴᴋᴀɴ sᴇsᴇᴏʀᴀɴɢ ᴜɴᴛᴜᴋ ᴘᴍ ᴀɴᴅᴀ
 
@@ -26,7 +23,6 @@ __HELP__ = f"""
    <b>•> ǫᴜᴇʀʏ:</b>
        •> <code>PIC</code>
        •> <code>TEXT</code>
-       •> <code>LOGS</code>
        •> <code>LIMIT</code>
 """
 
@@ -52,11 +48,6 @@ async def _(client, message):
 @PY.UBOT("pmpermit")
 async def _(client, message):
     await pm_on_off(client, message)
-
-
-@PY.UBOT("pmlogs")
-async def _(client, message):
-    await pm_logs(client, message)
 
 
 @PY.INLINE("pm_pr")
