@@ -3,6 +3,12 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
+
+from pyrogram.enums import ChatType
+
+from PyroUbot import *
+
+
 async def create_logs(client):
     logs = await client.create_channel(f"Logs Ubot: {bot.me.username}")
     await client.set_chat_photo(
@@ -19,11 +25,13 @@ async def forward_logs(client, message):
         if message.chat.type == ChatType.PRIVATE:
             type = "ᴘʀɪᴠᴀᴛᴇ"
             from_user = message.chat
+            id_link = f"tg://openmessage?user_id={from_user.id}&message_id={message.id}"
         elif message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             type = "ɢʀᴏᴜᴘ"
             from_user = message.from_user
-        rpk = f"[{from_user.first_name} {from_user.last_name or ''}](tg://user?id={from_user.id})"
-        link = f"[ᴋʟɪᴋ ᴅɪsɪɴɪ]({message.link})"
+            id_link = message.link
+        rpk = f"{from_user.first_name} {from_user.last_name or ''}"
+        link = f"ᴋʟɪᴋ ᴅɪsɪɴɪ"
         await client.send_message(
             int(logs),
             f"""
