@@ -27,9 +27,9 @@ async def ping_cmd(client, message):
     else:
         _ping = f"""
 <b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b>ᴍᴇɴᴛɪᴏɴ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+<b>ʙʏ:</b> <code>𝘊𝘰𝘯𝘴𝘵𝘦𝘳𝘭𝘺𝘹𝘉𝘰𝘵</code>
 """
-    await message.reply(_ping)
+    await message.edit(_ping)
 
 
 async def start_cmd(client, message):
