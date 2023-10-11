@@ -29,7 +29,7 @@ async def ping_cmd(client, message):
 <b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
 <b>ʙʏ:</b> <code>𝘊𝘰𝘯𝘴𝘵𝘦𝘳𝘭𝘺𝘹𝘉𝘰𝘵</code>
 """
-    await message.edit(_ping)
+    await message.reply(_ping)
 
 
 async def start_cmd(client, message):
