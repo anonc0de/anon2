@@ -73,7 +73,7 @@ async def pm_set(client, message):
         return await message.reply(
             "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
         )
-    query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC", "logs": "ID_LOGS"}
+    query = {"limit": "PM_LIMIT", "text": "PM_TEXT", "pic": "PM_PIC"}
     if message.command[1].lower() not in query:
         return await message.reply("<b>❌ ǫᴜᴇʀʏ ʏᴀɴɢ ᴅɪ ᴍᴀsᴜᴋᴋᴀɴ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ</b>")
     query_str, value_str = (
@@ -109,27 +109,6 @@ async def pm_on_off(client, message):
     await message.reply(f"<b>✅ ᴘᴍᴘᴇʀᴍɪᴛ ʙᴇʀʜᴀsɪʟ {text}</b>")
 
 
-
-async def pm_logs(client, message):
-    if len(message.command) < 2:
-        return await message.reply(
-            "ʜᴀʀᴀᴘ ʙᴀᴄᴀ ᴍᴇɴᴜ ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴇᴛᴀʜᴜɪ ᴄᴀʀᴀ ᴘᴇɴɢɢᴜɴᴀᴀɴɴʏᴀ."
-        )
-
-    toggle_options = {"off": False, "on": True}
-    toggle_option = message.command[1].lower()
-
-    if toggle_option not in toggle_options:
-        return await message.reply("ᴏᴘsɪ ᴛɪᴅᴀᴋ ᴠᴀʟɪᴅ. Hᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ 'on' ᴀᴛᴀᴜ 'off'.")
-
-    value = toggle_options[toggle_option]
-    text = "ᴅɪᴀᴋᴛɪғᴋᴀɴ" if value else "ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ"
-
-    await set_vars(client.me.id, "PM_LOGS", value)
-    await message.reply(f"<b>✅ ᴘᴍʟᴏɢs ʙᴇʀʜᴀsɪʟ {text}</b>")
-
-
-@PY.INLINE("pm_pr")
 async def pm_sh(client, inline_query):
     get_id = inline_query.query.split()
     m = [obj for obj in get_objects() if id(obj) == int(get_id[1])][0]
