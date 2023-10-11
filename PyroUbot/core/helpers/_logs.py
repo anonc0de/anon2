@@ -37,9 +37,9 @@ async def forward_logs(client, message):
             f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
     <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:</b> {link}
+    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:</b> <code>{link}</code>
     
 <b>⤵️ ᴘᴇsᴀɴ ᴛᴇʀᴜsᴀɴ 
-    <b>•> ᴅᴀʀɪ: {rpk}</b>
+    <b>•> ᴅᴀʀɪ:</b> <code>{rpk}</code>
 """,
         )
