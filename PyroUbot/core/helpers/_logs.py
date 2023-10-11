@@ -29,17 +29,20 @@ async def forward_logs(client, message):
         elif message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             type = "ɢʀᴏᴜᴘ"
             from_user = message.from_user
+            text_message = message.text
             id_link = message.link
         rpk = f"{from_user.first_name} {from_user.last_name or ''}"
         link = f"ᴋʟɪᴋ ᴅɪsɪɴɪ"
+        psn = f"{text_message.text}"
         await client.send_message(
             int(logs),
             f"""
 <b>📩 ᴀᴅᴀ ᴘᴇsᴀɴ ᴍᴀsᴜᴋ</b>
-    <b>•> ᴛɪᴘᴇ ᴘᴇsᴀɴ:</b> <code>{type}</code>
-    <b>•> ʟɪɴᴋ ᴘᴇsᴀɴ:</b> <code>{link}</code>
+    <b>•> ᴛɪᴘᴇ :</b> <code>{type}</code>
+    <b>•> ʟɪɴᴋ :</b> <code>{link}</code>
     
 <b>⤵️ ᴘᴇsᴀɴ ᴛᴇʀᴜsᴀɴ 
-    <b>•> ᴅᴀʀɪ:</b> <code>{rpk}</code>
+    <b>•> ᴅᴀʀɪ :</b> <code>{rpk}</code>
+    <b>"> ᴘᴇsᴀɴ :</b> <code>{psn}</code>
 """,
         )
