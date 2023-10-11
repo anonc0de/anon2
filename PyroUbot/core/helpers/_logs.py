@@ -29,11 +29,10 @@ async def forward_logs(client, message):
         elif message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             type = "ɢʀᴏᴜᴘ"
             from_user = message.from_user
-            text_message = message.text
             id_link = message.link
         rpk = f"{from_user.first_name} {from_user.last_name or ''}"
         link = f"ᴋʟɪᴋ ᴅɪsɪɴɪ"
-        psn = f"{text_message.text}"
+        psn = f"{message.text}"
         await client.send_message(
             int(logs),
             f"""
