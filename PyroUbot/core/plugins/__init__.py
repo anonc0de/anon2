@@ -1,3 +1,4 @@
+from PyroUbot.core.plugins.pmper import *
 from PyroUbot.core.plugins.lck import *
 from PyroUbot.core.plugins.pler import *
 from PyroUbot.core.plugins.vctls import *
