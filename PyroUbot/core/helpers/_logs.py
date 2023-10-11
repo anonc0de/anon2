@@ -43,4 +43,3 @@ async def forward_logs(client, message):
     <b>•> ᴅᴀʀɪ: {rpk}</b>
 """,
         )
-        return await message.forward(int(logs))
