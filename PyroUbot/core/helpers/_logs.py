@@ -31,7 +31,7 @@ async def forward_logs(client, message):
             from_user = message.from_user
             id_link = message.link
         rpk = f"{from_user.first_name} {from_user.last_name or ''}"
-        link = f"ᴋʟɪᴋ ᴅɪsɪɴɪ"
+        link = f"[ᴋʟɪᴋ ᴅɪsɪɴɪ]({id_link})"
         psn = f"{message.text}"
         await client.send_message(
             int(logs),
