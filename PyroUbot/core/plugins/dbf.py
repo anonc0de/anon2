@@ -193,7 +193,7 @@ async def unseles_user(client, message):
 
 
 async def get_seles_user(cliebt, message):
-    text = ""
+    text = f"📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ"
     count = 0
     for user_id in await get_seles():
         try:
@@ -202,7 +202,6 @@ async def get_seles_user(cliebt, message):
             user = f" {count}: <a href=tg://user?id={user.id}>{user.first_name} {user.last_name or ''}</a> > <code>{user.id}</code>"
         except Exception:
             continue
-        text = f"📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ"
         text += f"•> {user}\n"
     if not text:
         await message.reply_text("Tᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
