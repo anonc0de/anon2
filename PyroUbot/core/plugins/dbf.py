@@ -22,6 +22,7 @@ async def prem_user(client, message):
         return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʙᴜʟᴀɴ</b>")
     try:
         get_id = (await client.get_users(user_id)).id
+        user = await client.get_users(user_id)
     except Exception as error:
         return await Tm.edit(error)
     if not get_bulan:
@@ -33,11 +34,9 @@ async def prem_user(client, message):
     if added:
         now = datetime.now(timezone("Asia/Jakarta"))
         expired = now + relativedelta(months=int(get_bulan))
-        from_user = message.from_user
-        rpk = f"{from_user.first_name} {from_user.last_name or ''}"
         await set_expired_date(get_id, expired)
         await Tm.edit(
-            f"•> ɪᴅ :{get_id}\n•> ɴᴀᴍᴇ :{rpk}\n•> ᴍᴀsᴀ ᴀᴋᴛɪғ :{get_bulan} ʙᴜʟᴀɴ\n\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}"
+            f"•> ɪᴅ :{get_id}\n•> ɴᴀᴍᴇ :{user.mention}\n•> ᴍᴀsᴀ ᴀᴋᴛɪғ :{get_bulan} ʙᴜʟᴀɴ\n\nsɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ᴅɪ @{bot.me.username}"
         )
     else:
         await Tm.delete()
