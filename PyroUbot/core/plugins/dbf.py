@@ -199,10 +199,11 @@ async def get_seles_user(cliebt, message):
         try:
             user = await bot.get_users(user_id)
             count += 1
-            user = f"• {count}: <a href=tg://user?id={user.id}>{user.first_name} {user.last_name or ''}</a> > <code>{user.id}</code>"
+            user = f" {count}: <a href=tg://user?id={user.id}>{user.first_name} {user.last_name or ''}</a> > <code>{user.id}</code>"
         except Exception:
             continue
-        text += f"{user}\n"
+        text = f"📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ"
+        text += f"•> {user}\n"
     if not text:
         await message.reply_text("Tᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
