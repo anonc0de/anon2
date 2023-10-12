@@ -193,7 +193,7 @@ async def unseles_user(client, message):
 
 
 async def get_seles_user(cliebt, message):
-    text = f"📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ"
+    text = f"📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ\n"
     count = 0
     for user_id in await get_seles():
         try:
