@@ -36,7 +36,7 @@ async def prem_user(client, message):
         expired = now + relativedelta(months=int(get_bulan))
         await set_expired_date(get_id, expired)
         await Tm.edit(
-            f"•> ɪᴅ: {get_id}\n•> ɴᴀᴍᴇ: {user.mention}\n•> ᴍᴀsᴀ ᴀᴋᴛɪғ: {get_bulan} ʙᴜʟᴀɴ\n•> ᴋᴇᴛᴇʀᴀɴɢᴀɴ: 𝘗𝘳𝘦𝘮𝘪𝘶𝘮\n•> ʙʏ: consterlyxbot.t.me"
+            f"<b>•> ɪᴅ: {get_id}\n•> ɴᴀᴍᴇ: {user.mention}\n•> ᴍᴀsᴀ ᴀᴋᴛɪғ: {get_bulan} ʙᴜʟᴀɴ\n•> ᴋᴇᴛᴇʀᴀɴɢᴀɴ: 𝘗𝘳𝘦𝘮𝘪𝘶𝘮\n•> ʙʏ: consterlyxbot.t.me</b>"
         )
     else:
         await Tm.delete()
@@ -66,7 +66,7 @@ async def unprem_user(client, message):
 
 
 async def get_prem_user(client, message):
-    text = "📁ᴅᴀғᴛᴀʀ ᴘʀᴇᴍɪᴜᴍ ᴜʙᴏᴛ\n"
+    text = "<b>📁ᴅᴀғᴛᴀʀ ᴘʀᴇᴍɪᴜᴍ ᴜʙᴏᴛ\n</b>"
     for user_id in await get_prem():
         try:
             user = await bot.get_users(user_id)
@@ -193,7 +193,7 @@ async def unseles_user(client, message):
 
 
 async def get_seles_user(cliebt, message):
-    text = f"📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ\n"
+    text = f"<b>📁ᴅᴀғᴛᴀʀ ʀᴇsᴇʟʟᴇʀ ᴜʙᴏᴛ\n</b>"
     for user_id in await get_seles():
         try:
             user = await bot.get_users(user_id)
