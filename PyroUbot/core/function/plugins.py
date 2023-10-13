@@ -27,14 +27,14 @@ async def loadPlugins():
             HELP_COMMANDS[module_name] = imported_module
     print(f"[🤖 @{bot.me.username} 🤖] [🔥 TELAH BERHASIL DIAKTIFKAN! 🔥]")
     TM = await bot.send_message(
-        OWNER_ID,
+        LOGS_MAKER_UBOT,
         f"""
-<b>🤖Userbot Berhasil Diaktifkan</b>
-<b>📕Python: {python_version()}</b>
-<b>📙Pyrogram: {__version__}</b>
-<b>👤User: {len(user._ubot)}</b>
-<b>📆Date: {time}</b>
-<b>⏰Time: {clock}</b>
+<b>🤖 ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
+<b>📕 ᴘʏᴛʜᴏɴ: {python_version()}</b>
+<b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
+<b>👤 ᴜsᴇʀ: {len(user._ubot)}</b>
+<b>📆 ᴅᴀᴛᴇ: {time}</b>
+<b>⏰ ᴛɪᴍᴇ: {clock}</b>
 """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("CLOSED", callback_data="0_cls")]],
