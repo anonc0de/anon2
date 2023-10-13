@@ -73,9 +73,9 @@ class PY:
         async def function(client, message):
             user = message.from_user
             rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
-            if not message.chat.type == ChatType.PRIVATE:
+            if not message.chat.type == ChatType.SELLER:
                 return await message.reply(
-                    f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ᴘʀɪᴠᴀᴛᴇ.</b>",
+                    f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴇʟʟᴇʀ.</b>",
                     quote=True,
                 )
             return await func(client, message)
