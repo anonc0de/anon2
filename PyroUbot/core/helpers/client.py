@@ -14,7 +14,7 @@ class FILTERS:
     
 
 class PY:
-    def BOT(command, filter=FILTERS.ME_GROUP):
+    def BOT(command, filter=FILTERS.PRIVATE):
         def wrapper(func):
             @bot.on_message(filters.command(command) & filter)
             async def wrapped_func(client, message):
