@@ -3,7 +3,6 @@ from PyroUbot import *
 
 @PY.BOT("prem")
 @PY.UBOT("prem")
-@PY.SHIN
 async def _(client, message):
     await prem_user(client, message)
 
