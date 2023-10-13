@@ -8,6 +8,7 @@ class FILTERS:
     ME = filters.me
     GROUP = filters.group
     PRIVATE = filters.private
+    SELLER = -1004039701004
     OWNER = filters.user(OWNER_ID)
     ME_GROUP = filters.me & filters.group
     ME_OWNER = filters.me & filters.user(OWNER_ID)
@@ -56,6 +57,19 @@ class PY:
         return wrapper
 
     def PRIVATE(func):
+        async def function(client, message):
+            user = message.from_user
+            rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
+            if not message.chat.type == ChatType.PRIVATE:
+                return await message.reply(
+                    f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ᴘʀɪᴠᴀᴛᴇ.</b>",
+                    quote=True,
+                )
+            return await func(client, message)
+
+        return function
+
+    def SHIN(func):
         async def function(client, message):
             user = message.from_user
             rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
