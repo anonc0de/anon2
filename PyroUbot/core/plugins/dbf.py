@@ -66,16 +66,14 @@ async def unprem_user(client, message):
 
 
 async def get_prem_user(client, message):
-    text = ""
-    count = 0
+    text = "📁ᴅᴀғᴛᴀʀ ᴘʀᴇᴍɪᴜᴍ ᴜʙᴏᴛ"
     for user_id in await get_prem():
         try:
             user = await bot.get_users(user_id)
-            count += 1
-            userlist = f"• {count}: <a href=tg://user?id={user.id}>{user.first_name} {user.last_name or ''}</a> > <code>{user.id}</code>"
+            userlist = f"<a href=tg://user?id={user.id}>{user.first_name} {user.last_name or ''}</a> > <code>{user.id}</code>"
         except Exception:
             continue
-        text += f"{userlist}\n"
+        text += f"   •> {userlist}\n"
     if not text:
         await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
