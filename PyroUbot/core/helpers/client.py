@@ -68,15 +68,3 @@ class PY:
 
         return function
 
-    def SHIN(func):
-        async def function(client, message):
-            user = message.from_user
-            rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
-            if message.chat.id not in SELLER:
-                return await message.reply(
-                    f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴇʟʟᴇʀ.</b>",
-                    quote=True,
-                )
-            return await func(client, message)
-
-        return function
