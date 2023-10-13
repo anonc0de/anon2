@@ -32,7 +32,7 @@ async def loadPlugins():
 <b>🤖 ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
 <b>📕 ᴘʏᴛʜᴏɴ: {python_version()}</b>
 <b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
-<b>👤 ᴜsᴇʀ: {len(user._ubot)}</b>
+<b>👤 ᴜsᴇʀ: {len(ubot._ubot)}</b>
 <b>📆 ᴅᴀᴛᴇ: {time}</b>
 <b>⏰ ᴛɪᴍᴇ: {clock}</b>
 """,
