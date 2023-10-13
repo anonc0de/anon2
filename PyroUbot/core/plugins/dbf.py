@@ -66,7 +66,7 @@ async def unprem_user(client, message):
 
 
 async def get_prem_user(client, message):
-    text = "📁ᴅᴀғᴛᴀʀ ᴘʀᴇᴍɪᴜᴍ ᴜʙᴏᴛ"
+    text = "📁ᴅᴀғᴛᴀʀ ᴘʀᴇᴍɪᴜᴍ ᴜʙᴏᴛ\n"
     for user_id in await get_prem():
         try:
             user = await bot.get_users(user_id)
