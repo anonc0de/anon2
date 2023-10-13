@@ -258,11 +258,6 @@ async def bikin_ubot(client, callback_query):
     await new_client.disconnect()
     new_client.storage.session_string = session_string
     new_client.in_memory = False
-    bot_msg = await bot.send_message(
-        user_id,
-        "sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs....\n\nsɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ",
-        disable_web_page_preview=True,
-    )
     await new_client.start()
     if not user_id == new_client.me.id:
         ubot._ubot.remove(new_client)
@@ -280,32 +275,21 @@ async def bikin_ubot(client, callback_query):
         await remove_prem(callback_query.from_user.id) 
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-    text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
-    await bot_msg.edit(text_done)
+    await bot.send_message(
+        f"""
+<b>🤖 USERBOT TELAH AKTIFKAN!!!</b>
+<b>👤 ɴᴀᴍᴇ :</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a>
+<b>📋 ɪᴅ :</b> <code>{new_client.me.id}</code>
+<b>📅 ᴇxᴘɪʀᴇᴅ :
+        
+        """
+    )
     await install_my_peer(new_client)
     try:
         await new_client.join_chat("MutualanConsterly")
     except UserAlreadyParticipant:
         pass
-    return await bot.send_message(
-        LOGS_MAKER_UBOT,
-        f"""
-<b>ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
-<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> 
-<b>ɪᴅ:</b> <code>{new_client.me.id}</code>
-""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                        callback_data=f"cek_masa_aktif {new_client.me.id}",
-                    )
-                ],
-            ]
-        ),
-        disable_web_page_preview=True,
-    )
+    
     
 
 async def next_prev_ubot(client, callback_query):
