@@ -1,6 +1,9 @@
 from importlib import import_module
 from platform import python_version
 
+from pytz import timezone
+from datetime import datetime
+
 from pyrogram import __version__
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -13,6 +16,9 @@ HELP_COMMANDS = {}
 
 
 async def loadPlugins():
+    now = datetime.now(timezone("Asia/Jakarta"))
+    time = now.strftime("%d-%m-%Y")
+    clock = now.strftime("%H:%M:%S")
     modules = loadModule()
     for mod in modules:
         imported_module = import_module(f"PyroUbot.modules.{mod}")
@@ -23,21 +29,15 @@ async def loadPlugins():
     TM = await bot.send_message(
         OWNER_ID,
         f"""
-<b>🤖 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ</b>
-
-<b>📁 ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>
-<b>📘 ᴘʏᴛʜᴏɴ: {python_version()}</b>
-<b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
-
-<b>👤 ᴜsᴇʀʙᴏᴛ: {len(ubot._ubot)}</b>
+<b>🤖Userbot Berhasil Diaktifkan</b>
+<b>📕Python: {python_version()}</b>
+<b>📙Pyrogram: {__version__}</b>
+<b>👤User: {len(user._ubot)}</b>
+<b>📆Date: {time}</b>
+<b>⏰Time: {clock}</b>
 """,
         reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
-                    InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
-                ],
-            ]
+            [[InlineKeyboardButton("CLOSED", callback_data="0_cls")]],
         ),
     )
     
