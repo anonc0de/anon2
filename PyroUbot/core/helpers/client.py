@@ -8,7 +8,7 @@ class FILTERS:
     ME = filters.me
     GROUP = filters.group
     PRIVATE = filters.private
-    SELLER = [-1004039701004]
+    SELLER = -1004039701004
     OWNER = filters.user(OWNER_ID)
     ME_GROUP = filters.me & filters.group
     ME_OWNER = filters.me & filters.user(OWNER_ID)
@@ -73,7 +73,7 @@ class PY:
         async def function(client, message):
             user = message.from_user
             rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
-            if not message.chat.type == ChatType.SELLER:
+            if not message.chat.id == SELLER:
                 return await message.reply(
                     f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ɢʀᴏᴜᴘ sᴇʟʟᴇʀ.</b>",
                     quote=True,
