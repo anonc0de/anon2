@@ -8,7 +8,7 @@ from pyrogram import __version__
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from PyroUbot import bot, ubot
-from PyroUbot.config import OWNER_ID
+from PyroUbot.config import LOGS_MAKER_UBOT
 from PyroUbot.core.helpers import PY
 from PyroUbot.modules import loadModule
 
