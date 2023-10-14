@@ -63,12 +63,8 @@ class PY:
 
     def PRIVATE(func):
         async def function(client, message):
-            user = message.from_user
             if not message.chat.type == ChatType.PRIVATE:
-                return await message.reply(
-                    f"",
-                    quote=True,
-                )
+                return 
             return await func(client, message)
 
         return function
