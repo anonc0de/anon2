@@ -27,7 +27,7 @@ __HELP__ = f"""
 """
 
 
-@PY.PMPERMIT
+@PY.PMPERMIT()
 async def _(client, message):
     await pm_anu(client, message)
 
