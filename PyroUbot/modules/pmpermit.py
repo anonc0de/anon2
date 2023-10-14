@@ -27,15 +27,7 @@ __HELP__ = f"""
 """
 
 
-@ubot.on_message(
-    filters.private
-    & filters.incoming
-    & ~filters.me
-    & ~filters.bot
-    & ~filters.via_bot
-    & ~filters.service,
-    group=69,
-)
+@PY.PMPERMIT
 async def _(client, message):
     await pm_anu(client, message)
 
