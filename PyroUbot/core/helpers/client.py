@@ -64,10 +64,9 @@ class PY:
     def PRIVATE(func):
         async def function(client, message):
             user = message.from_user
-            rpk = f"<a href='tg://user?id={user.id}'>{user.first_name} {user.last_name or ''}</a>"
             if not message.chat.type == ChatType.PRIVATE:
                 return await message.reply(
-                    f"<b>❌ ᴍᴀᴀғ {rpk}, ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ʜᴀɴʏᴀ ʙᴇʀғᴜɴɢsɪ ᴅɪ ᴘʀɪᴠᴀᴛᴇ.</b>",
+                    f"",
                     quote=True,
                 )
             return await func(client, message)
