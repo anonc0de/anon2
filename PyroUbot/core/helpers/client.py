@@ -73,3 +73,38 @@ class PY:
             return await func(client, message)
 
         return function
+
+    def LOGS():
+        def wrapper(func):
+            @ubot.on_message(filters.group & filters.incoming & filters.mentioned)
+            @ubot.on_message(
+                filters.private
+                & filters.incoming
+                & ~filters.me
+                & ~filters.bot
+                & ~filters.service
+            )
+            async def wrapped_func(client, message):
+                await func(client, message)
+
+            return wrapped_func
+
+        return wrapper
+
+    def PMPERMIT():
+        def wrapper(func):
+            @ubot.on_message(
+                filters.private
+                & filters.incoming
+                & ~filters.me
+                & ~filters.bot
+                & ~filters.via_bot
+                & ~filters.service,
+                group=69,
+            )
+            async def wrapped_func(client, message):
+                await func(client, message)
+
+            return wrapped_func
+
+        return wrapper
