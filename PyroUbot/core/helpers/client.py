@@ -13,7 +13,7 @@ class FILTERS:
     ME_OWNER = filters.me & filters.user(OWNER_ID)
     
 
-class HYPER:
+class PY:
     @staticmethod
     def BOT(command, filter=False):
         def wrapper(func):
