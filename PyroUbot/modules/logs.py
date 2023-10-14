@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.LOGS
+@ubot.on_message(filters.group & filters.mentioned & filters.incoming)
 async def _(client, message):
     await forward_logs(client, message)
 
