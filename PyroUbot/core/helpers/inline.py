@@ -43,12 +43,7 @@ class Button:
 
     def expired_button_bot():
         button = [
-            [
-                InlineKeyboardButton(
-                    text=f"{bot.me.first_name}",
-                    url=f"https://t.me/{bot.me.username}",
-                )
-            ]
+            [InlineKeyboardButton("💵 ʙᴇʟɪ ᴜsᴇʀʙᴏᴛ 💵", callback_data="bahan")]
         ]
         return button
 
