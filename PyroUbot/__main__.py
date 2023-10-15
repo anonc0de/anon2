@@ -29,7 +29,7 @@ async def start_ubot(user_id, _ubot):
 async def main():
     ubots = await get_userbots()
     tasks = []
-    for ubot in ubots:
+    for _ubot in ubots:
         task = asyncio.create_task(start_ubot(int(_ubot["name"]), _ubot))
         tasks.append(task)
     try:
