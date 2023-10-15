@@ -32,9 +32,10 @@ async def main():
         for _ubot in await get_userbots()
     ]
     await asyncio.gather(*tasks, bot.start())
-    await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots(), idle())
+    await asyncio.gather(loadPlugins(), installPeer(), idle())
 
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop_policy().get_event_loop()
+    loop.create_task(expiredUserbots())
     loop.run_until_complete(main())
