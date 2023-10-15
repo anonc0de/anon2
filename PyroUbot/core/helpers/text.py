@@ -14,10 +14,10 @@ class MSG:
             
     def EXPIRED_MSG_BOT(X):
         return f"""
-<b>ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
-<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
-<b>ɪᴅ:</b> <code>{X.me.id}</code>
-<b>ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴛᴇʟᴀʜ ʜᴀʙɪs</b>
+<b>!!ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ!!</b>
+<b>  ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+<b>  ɪᴅ:</b> <code>{X.me.id}</code>
+<b>  ᴇxᴘɪʀᴇᴅ: ᴛᴇʟᴀʜ ʜᴀʙɪs</b>
 """
 
     
