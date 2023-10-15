@@ -24,17 +24,16 @@ async def expiredUserbots():
                         await remove_chat(X.me.id, chat)
                     await rm_all(X.me.id)
                     await remove_ubot(X.me.id)
+                    await rem_pref(X.me.id)
+                    await remove_all_vars(X.me.id)
                     await rem_expired_date(X.me.id)
                     ubot._get_my_id.remove(X.me.id)
                     ubot._ubot.remove(X)
                     await X.log_out()
                     await bot.send_message(
-                        LOGS_MAKER_UBOT,
+                        X.me.id,
                         MSG.EXPIRED_MSG_BOT(X),
                         reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
-                    )
-                    await bot.send_message(
-                        X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
                     )
             except Exception as e:
                 print(f"Error: - {X.me.id} - :{str(e)}")
