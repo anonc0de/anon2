@@ -27,12 +27,18 @@ async def start_ubot(user_id, _ubot):
 
 
 async def main():
-    tasks = [
-        asyncio.create_task(start_ubot(int(_ubot["name"]), _ubot))
-        for _ubot in await get_userbots()
-    ]
-    await asyncio.gather(*tasks, bot.start())
-    await asyncio.gather(loadPlugins(), installPeer(), idle())
+    ubots = await get_userbots()
+    tasks = []
+    for ubot in ubots:
+        task = asyncio.create_task(safe_start_ubot(int(ubot["name"]), ubot))
+        tasks.append(task)
+    try:
+        await asyncio.gather(*tasks, bot.start())
+        await asyncio.gather(loadPlugins(), installPeer(), idle())
+    except KeyboardInterrupt:
+        print("KeyboardInterrupt - Stopping the program.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
