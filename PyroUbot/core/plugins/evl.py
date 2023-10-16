@@ -239,13 +239,3 @@ async def get_my_otp(client, message):
                     await TM.delete()
                 else:
                     return await TM.edit(X.me.phone_number)
-
-
-async def cb_restart(client, callback_query):
-    await callback_query.message.delete()
-    os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
-
-
-async def cb_gitpull(client, callback_query):
-    await callback_query.message.delete()
-    os.system(f"kill -9 {os.getpid()} && git pull && python3 -m PyroUbot")
