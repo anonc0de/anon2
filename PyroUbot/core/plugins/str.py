@@ -3,6 +3,9 @@ from datetime import datetime
 from gc import get_objects
 from time import time
 
+from platform import python_version
+from pyrogram import __version__
+
 from pyrogram.raw.functions import Ping
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -28,6 +31,22 @@ async def ping_cmd(client, message):
         _ping = f"""
 <b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
 <b>ᴍᴇɴᴛɪᴏɴ:</b> <code>𝘊𝘰𝘯𝘴𝘵𝘦𝘳𝘭𝘺𝘹𝘉𝘰𝘵</code>
+"""
+    await message.reply(_ping)
+
+
+async def stats_cmd(client, message):
+    svmem = psutil.virtual_memory()
+    return {
+        "boot_time": psutil.boot_time(),
+        "memory_total": get_size(svmem.total),
+        "memory_available": get_size(svmem.available),
+    }
+    _ping = f"""
+<b>📕 ᴘʏᴛʜᴏɴ: {python_version()}</b>
+<b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
+<b>👤 ᴜsᴇʀ: {len(ubot._ubot)}</b>
+<b>⏰ ᴜᴘᴛɪᴍᴇ: {boot_time.day}/{boot_time.month}/{boot_time.year}  {boot_time.hour}:{boot_time.minute}:{boot_time.second}</b>
 """
     await message.reply(_ping)
 
