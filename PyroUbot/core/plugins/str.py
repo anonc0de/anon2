@@ -35,21 +35,6 @@ async def ping_cmd(client, message):
     await message.reply(_ping)
 
 
-async def stats_cmd(client, message):
-    svmem = psutil.virtual_memory()
-    return {
-        "boot_time": psutil.boot_time(),
-        "memory_total": get_size(svmem.total),
-        "memory_available": get_size(svmem.available),
-    }
-    _ping = f"""
-<b>📕 ᴘʏᴛʜᴏɴ: {python_version()}</b>
-<b>📙 ᴘʏʀᴏɢʀᴀᴍ: {__version__}</b>
-<b>👤 ᴜsᴇʀ: {len(ubot._ubot)}</b>
-<b>⏰ ᴜᴘᴛɪᴍᴇ: {boot_time.day}/{boot_time.month}/{boot_time.year}  {boot_time.hour}:{boot_time.minute}:{boot_time.second}</b>
-"""
-    await message.reply(_ping)
-
 
 async def start_cmd(client, message):
     if len(message.command) < 2:
