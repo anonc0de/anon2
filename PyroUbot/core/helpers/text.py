@@ -9,15 +9,15 @@ class MSG:
 <b>ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
 <b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
 <b>ɪᴅ:</b> <code>{X.me.id}</code>
-<b>ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
+<b>ʀᴇᴀsᴏɴ:</b> <code>ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</code>
 """
             
     def EXPIRED_MSG_BOT(X):
         return f"""
-<b>!!ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ!!</b>
-<b>  ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
-<b>  ɪᴅ:</b> <code>{X.me.id}</code>
-<b>  ᴇxᴘɪʀᴇᴅ: ᴛᴇʟᴀʜ ʜᴀʙɪs</b>
+<b>ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
+<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+<b>ɪᴅ:</b> <code>{X.me.id}</code>
+<b>ᴇxᴘɪʀᴇᴅ: ᴛᴇʟᴀʜ ʜᴀʙɪs</b>
 """
 
     
