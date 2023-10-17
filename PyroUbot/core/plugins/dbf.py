@@ -226,7 +226,7 @@ async def expired_add(client, message):
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=int(get_day))
     await set_expired_date(user_id, expire_date)
-    await Tm.edit(f"{get_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_day} ʜᴀʀɪ.")
+    await Tm.edit(f"•> ɪᴅ: {get_id}\n•> ᴀᴋᴛɪғᴋᴀɴ_sᴇʟᴀᴍᴀ: {get_day} ʜᴀʀɪ")
 
 
 async def expired_cek(client, message):
@@ -239,7 +239,7 @@ async def expired_cek(client, message):
     else:
         remaining_days = (expired_date - datetime.now()).days
         await message.reply(
-            f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
+            f"•> ɪᴅ: {user_id}\n•> ᴀᴋᴛɪғ_ʜɪɴɢɢᴀ: {expired_date.strftime('%d-%m-%Y %H:%M:%S')}\n•> ᴡᴀᴋᴛᴜ_ᴀᴋᴛɪғ: {remaining_days} ʜᴀʀɪ"
         )
 
 
