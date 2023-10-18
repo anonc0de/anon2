@@ -1,4 +1,5 @@
 import asyncio
+from asyncio import get_event_loop, gather
 
 from pyrogram import idle
 
@@ -38,8 +39,7 @@ async def main():
     await asyncio.gather(loadPlugins(), installPeer(), expiredUserbots(), idle())
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    get_event_loop().run_until_complete(main())
 
 """
 if __name__ == "__main__":
