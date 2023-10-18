@@ -1,43 +1,29 @@
 import asyncio
 
 from pyrogram import idle
+from pyrogram.errors import RPCError
+
 
 from PyroUbot import *
 
 
-async def start_ubot(user_id, _ubot):
-    ubot_ = Ubot(**_ubot)
-    try:
-        await asyncio.wait_for(ubot_.start(), timeout=30)
-        await ubot_.join_chat("MutualanConsterly")
-    except asyncio.TimeoutError:
-        await remove_ubot(user_id)
-        await add_prem(user_id)
-        await sending_user(user_id)
-        print(f"[𝗜𝗡𝗙𝗢] - ({user_id}) 𝗧𝗜𝗗𝗔𝗞 𝗗𝗔𝗣𝗔𝗧 𝗠𝗘𝗥𝗘𝗦𝗣𝗢𝗡")
-    except:
-        await remove_ubot(user_id)
-        await rm_all(user_id)
-        await remove_all_vars(user_id)
-        await rem_pref(user_id)
-        await rem_expired_date(user_id)
-        for X in await get_chat(user_id):
-            await remove_chat(user_id, X)
-        print(f"✅ {user_id} 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 𝗗𝗜𝗛𝗔𝗣𝗨𝗦")
-
-
 async def main():
-    userbots = await get_userbots()
-    tasks = [
-        start_ubot(int(_ubot["name"]), _ubot)
-        for _ubot in userbots
-    ]
-    await asyncio.gather(*tasks)
-
     await bot.start()
-    await asyncio.gather(loadPlugins(), expiredUserbots(), installPeer(), idle())
+    for _ubot in await get_userbots():
+        ubot_ = Ubot(**_ubot)
+        try:
+            await ubot_.start()
+        except RPCError:
+            await remove_ubot(int(_ubot["name"]))
+            print(f"{_ubot['name']} Successfully Deleted From Database")
+    await loadPlugins()
+    await installPeer()
+    await idle()
 
+async def ex():
+    await asyncio.sleep(60)
+    await expiredUserbots()
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop_policy().get_event_loop()
-    loop.run_until_complete(main())
+    get_event_loop().create_task(ex())
+    get_event_loop().run_until_complete(main())
