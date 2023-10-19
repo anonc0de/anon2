@@ -9,11 +9,11 @@ for module, count in module_counts.items():
 
 async def get_top_module(client, message):
     text = "<b>🗂️ ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ 🗂️</b>"
-    for module, count in module_counts.items():
+    module_counts = module_usage(module_name)
+    for module, count in module_counts:
         try:
             # Mencoba mengubah modul ke dalam format yang diinginkan
             module_name = "ping"
-            module_counts = module_usage(module_name)
         except Exception:
             continue
         text += f"\n •> {module_name}: {count} kali digunakan"
