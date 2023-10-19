@@ -2,19 +2,22 @@ from importlib import import_module
 
 from PyroUbot import *
 
-
+"""
+for module, count in module_counts.items():
+        print(f"Modul {module} digunakan sebanyak {count} kali.")
+"""
 
 async def get_top_module(client, message):
-    text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
-    modules = loadModule()
-    for mod in modules:
+    text = "<b>🗂️ ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ 🗂️</b>"
+    for module, count in module_counts.items():
         try:
-            imported_module = import_module(f"PyroUbot.modules.{mod}")
-            module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
+            # Mencoba mengubah modul ke dalam format yang diinginkan
+            module_name = module.replace("_", " ").title()
+            text += f"\n •> {module_name}: {count} kali digunakan"
         except Exception:
             continue
-        text += f"  •> {module_name}\n"
+
     if not text:
-        await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴍᴏᴅᴜʟᴇ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
+        await message.reply_text("Tidak ada modul yang ditemukan.")
     else:
-        await message.reply_text(text)
+        await message.reply_text(text, parse_mode="html")
