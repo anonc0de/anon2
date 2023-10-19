@@ -16,6 +16,7 @@ from PyroUbot import *
 async def ping_cmd(client, message):
     start = datetime.now()
     module_name = "ping"
+    update_module(module_name)
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
@@ -34,7 +35,7 @@ async def ping_cmd(client, message):
 <b>ᴍᴇɴᴛɪᴏɴ:</b> <code>𝘊𝘰𝘯𝘴𝘵𝘦𝘳𝘭𝘺𝘹𝘉𝘰𝘵</code>
 """
     await message.reply(_ping)
-    await update_module(module_name)
+
 
 
 
