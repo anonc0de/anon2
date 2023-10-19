@@ -9,12 +9,14 @@ for module, count in module_counts.items():
 
 async def get_top_module(client, message):
     text = "<b>🗂️ ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ 🗂️</b>"
-    for module, count in await module_usage():
+    module_results = usage_module()
+    for result in module_results:
         try:
-            module_name = module.replace(" ", "_").lower()
+            module_name = result["module_name"]
+            usage_count = result["usage_count"]
         except Exception:
             continue
-        text += f"\n •> {module_name}: {count} kali digunakan"
+        text += f"\n •> {module_name}: {usage_count} kali digunakan"
     if not text:
         await message.reply_text("Tidak ada modul yang ditemukan.")
     else:
