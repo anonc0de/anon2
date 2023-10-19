@@ -21,4 +21,4 @@ def usage_module():
             module_name = module_doc["module_name"]
             usage_count = module_doc["usage_count"]
             result_list.append({"module_name": module_name, "usage_count": usage_count})
-    return result_list
+        return result_list
