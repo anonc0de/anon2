@@ -7,6 +7,7 @@ from PyroUbot.core.helpers import PY
 from PyroUbot.modules import loadModule
 
 HELP_COMMANDS = {}
+modules_used = {}
 
 
 async def loadPlugins():
@@ -16,6 +17,7 @@ async def loadPlugins():
         module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
         if module_name:
             HELP_COMMANDS[module_name] = imported_module
+            modules_used[module_name] = 0
     print(f"[🤖 @{bot.me.username} 🤖] [🔥 TELAH BERHASIL DIAKTIFKAN! 🔥]")
     
     
