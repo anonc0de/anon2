@@ -11,6 +11,20 @@ def loadModule():
     ])
 
 
+def get_commands():
+    module_directory = "PyroUbot/modules/"
+    commands = []
+
+    module_files = glob.glob(os.path.join(module_directory, '*.py'))
+    for module_file in module_files:
+        module_name = basename(module_file)[:-3] 
+        imported_module = import_module(f"{dirname(__file__)}.{module_name}")
+        module_commands = getattr(imported_module, "HELP_COMMANDS", [])
+        commands.extend(module_commands)
+
+    return commands
+
+
 """
 def loadModule():
     module_list = sorted([
