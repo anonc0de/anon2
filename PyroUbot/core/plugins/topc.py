@@ -21,4 +21,4 @@ async def get_top_module(client, message):
     if not text:
         await message.reply_text("Tidak ada modul yang ditemukan.")
     else:
-        await message.reply_text(text, parse_mode="html")
+        await message.reply_text(text)
