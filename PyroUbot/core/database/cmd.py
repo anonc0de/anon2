@@ -1,4 +1,4 @@
-from PyroUbot.core.database import mongo_client
+from PyroUbot.core.database import mongodb
 
 module_usage_collection = mongodb.module
 
