@@ -9,7 +9,7 @@ for module, count in module_counts.items():
 
 async def get_top_module(client, message):
     text = "<b>🗂️ ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ 🗂️</b>"
-    module_counts = module_usage(module_name)
+    module_counts = module_usage()
     for module, count in module_counts:
         try:
             module_name = getattr("__MODULE__", "").replace(" ", "_").lower()
