@@ -1,6 +1,7 @@
 from os.path import basename, dirname
 from glob import glob
 from os.path import isfile
+from importlib import import_module
 
 
 def loadModule():
