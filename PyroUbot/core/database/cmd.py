@@ -1,6 +1,6 @@
 from PyroUbot.core.database import mongo_client
 
-module_usage_collection = mongo_client["PyroUbot"]["module_usage"]
+module_usage_collection = mongodb.module
 
 def update_module(module_name):
     module_doc = module_usage_collection.find_one({"module_name": module_name})
