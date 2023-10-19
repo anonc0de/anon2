@@ -12,8 +12,7 @@ async def get_top_module(client, message):
     module_counts = module_usage(module_name)
     for module, count in module_counts:
         try:
-            # Mencoba mengubah modul ke dalam format yang diinginkan
-            module_name = "ping"
+            module_name = getattr("__MODULE__", "").replace(" ", "_").lower()
         except Exception:
             continue
         text += f"\n •> {module_name}: {count} kali digunakan"
