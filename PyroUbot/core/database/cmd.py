@@ -1,4 +1,5 @@
 from PyroUbot.core.database import mongodb
+from pymongo.errors import PyMongoError
 
 module_usage_collection = mongodb.module
 
@@ -12,7 +13,8 @@ def update_module(module_name):
             )
         else:
             module_usage_collection.insert_one({"module_name": module_name, "usage_count": 1})
-
+    except PyMongoError as e:
+        print(f"Error in updating module usage: {str(e)}")
 
 def usage_module():
     result_list = []
@@ -21,4 +23,6 @@ def usage_module():
             module_name = module_doc["module_name"]
             usage_count = module_doc["usage_count"]
             result_list.append({"module_name": module_name, "usage_count": usage_count})
-        return result_list
+    except PyMongoError as e:
+        print(f"Error in getting module usage results: {str(e)}")
+    return result_list
