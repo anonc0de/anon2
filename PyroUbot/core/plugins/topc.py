@@ -1,3 +1,4 @@
+"""
 from importlib import import_module
 
 from PyroUbot.modules import loadModule
@@ -18,3 +19,4 @@ async def get_top_module(client, message):
         await message.reply_text("ᴛɪᴅᴀᴋ")
     else:
         await message.reply_text(text)
+"""
