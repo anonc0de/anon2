@@ -15,7 +15,6 @@ from PyroUbot import *
 
 async def ping_cmd(client, message):
     start = datetime.now()
-    module_name = "ping"
     update_module(module_name)
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
