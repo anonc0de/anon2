@@ -18,7 +18,9 @@ def loadModule():
         for f in glob(f"{dirname(__file__)}/*.py")
         if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
     ])    
-    
+
+
+def top_command():    
     module_counts = {}
     for module in module_list:
         if module in module_counts:
