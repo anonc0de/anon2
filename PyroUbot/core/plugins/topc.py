@@ -7,6 +7,7 @@ from PyroUbot import *
 async def get_top_module(client, message):
     text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
     modules = loadModule()
+    count = top_command()
     for module in modules:
         try:
             imported_module = import_module(f"PyroUbot.modules.{module}")
