@@ -11,7 +11,7 @@ async def get_top_module(client, message):
     text = "<b>🗂️ ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ 🗂️</b>"
     for module, count in await module_usage():
         try:
-            module_name = getattr("__MODULE__", "").replace(" ", "_").lower()
+            module_name = module.replace(" ", "_").lower()
         except Exception:
             continue
         text += f"\n •> {module_name}: {count} kali digunakan"
