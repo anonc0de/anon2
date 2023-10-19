@@ -18,7 +18,7 @@ from PyroUbot import *
 
 async def get_top_module(client, message):
     text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
-    for mod in modules:
+    for mod in await loadModule():
         try:
             imported_module = import_module(f"PyroUbot.modules.{mod}")
             module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
