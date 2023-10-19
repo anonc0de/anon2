@@ -12,17 +12,6 @@ def loadModule():
     ])
 
 
-def get_commands():
-    commands = []
-    module_files = glob(f"{dirname(__file__)}/*.py")
-    for module_file in module_files:
-        module_name = basename(module_file)[:-3] 
-        imported_module = import_module(f"{dirname(__file__)}.{module_name}")
-        module_commands = getattr(imported_module, "HELP_COMMANDS", [])
-        commands.extend(module_commands)
-
-    return commands
-
 
 """
 def loadModule():
