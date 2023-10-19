@@ -24,8 +24,8 @@ async def get_top_module(client, message):
             module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
         except Exception:
             continue
-        text += f"•> {userlist}\n"
+        text += f"•> {module_name}\n"
     if not text:
-        await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
+        await message.reply_text("ᴛɪᴅᴀᴋ")
     else:
         await message.reply_text(text)
