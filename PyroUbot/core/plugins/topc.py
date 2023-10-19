@@ -1,3 +1,4 @@
+"""
 from importlib import import_module
 
 from PyroUbot.modules import loadModule
@@ -7,3 +8,24 @@ for mod in modules:
       imported_module = import_module(f"PyroUbot.modules.{mod}")
       module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
 print(mod)
+"""
+
+from importlib import import_module
+
+from PyroUbot.modules import loadModule
+
+from PyroUbot import *
+
+async def get_top_module(client, message):
+    text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
+    for mod in modules:
+        try:
+           imported_module = import_module(f"PyroUbot.modules.{mod}")
+           module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
+        except Exception:
+            continue
+      text += f"   •> {userlist}\n"
+  if not text:
+      await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇɴɢɢᴜɴᴀ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
+  else:
+      await message.reply_text(text)
