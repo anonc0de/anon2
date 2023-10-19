@@ -31,6 +31,11 @@ async def _(client, message):
     await get_seles_user(client, message)
 
 
+@PY.BOT("top", FILTERS.OWNER)
+async def _(client, message):
+    await get_top_module(client, message)
+
+
 @PY.BOT("time", FILTERS.OWNER)
 async def _(client, message):
     await expired_add(client, message)
