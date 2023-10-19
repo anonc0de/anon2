@@ -11,3 +11,11 @@ def update_module(module_name):
         )
     else:
         module_usage_collection.insert_one({"module_name": module_name, "usage_count": 1})
+
+
+def module_usage(module_name):
+    module_doc = module_usage_collection.find_one({"module_name": module_name})
+    if module_doc:
+        return module_doc["usage_count"]
+    else:
+        return 0
