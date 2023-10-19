@@ -14,10 +14,9 @@ async def get_top_module(client, message):
         try:
             # Mencoba mengubah modul ke dalam format yang diinginkan
             module_name = module.replace("_", " ").title()
-            text += f"\n •> {module_name}: {count} kali digunakan"
         except Exception:
             continue
-
+        text += f"\n •> {module_name}: {count} kali digunakan"
     if not text:
         await message.reply_text("Tidak ada modul yang ditemukan.")
     else:
