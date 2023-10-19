@@ -9,6 +9,7 @@ for module, count in module_counts.items():
 
 async def get_top_module(client, message):
     text = "<b>🗂️ ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ 🗂️</b>"
+    module_counts = {}
     for module, count in module_counts.items():
         try:
             # Mencoba mengubah modul ke dalam format yang diinginkan
