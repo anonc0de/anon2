@@ -17,6 +17,7 @@ async def loadPlugins():
         module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
         if module_name:
             HELP_COMMANDS[module_name] = imported_module
+            module_name = import_module(f"PyroUbot.modules.{mod}")
             await record_module_usage(module_name)
     print(f"[🤖 @{bot.me.username} 🤖] [🔥 TELAH BERHASIL DIAKTIFKAN! 🔥]")
     
