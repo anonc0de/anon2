@@ -8,7 +8,8 @@ for module, count in module_counts.items():
 """
 
 async def get_top_module(client, message):
-    imported_module = import_module(f"PyroUbot/modules")
+    moduler = loadModule() 
+    imported_module = import_module(f"PyroUbot.modules.{moduler}")
     module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
 
     usage_count = await get_module_usage(module_name)
