@@ -19,21 +19,25 @@ __HELP__ = f"""
 
 
 @PY.UBOT("setbio")
+@PY.TOP_CMD
 async def _(client, message):
     await set_bio(client, message)
 
 
 @PY.UBOT("setname")
+@PY.TOP_CMD
 async def _(client, message):
     await setname(client, message)
 
 
 @PY.UBOT("block")
+@PY.TOP_CMD
 async def _(client, message):
     await block_user_func(client, message)
 
 
 @PY.UBOT("unblock")
+@PY.TOP_CMD
 async def _(client, message):
     await unblock_user_func(client, message)
 
