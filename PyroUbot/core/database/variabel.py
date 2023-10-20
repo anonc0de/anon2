@@ -3,14 +3,19 @@ from PyroUbot.core.database import mongodb
 varsdb = mongodb.vars
 
 
-async def set_vars(bot_id, vars_name, value):
-    update_data = {"$set": {f"vars.{vars_name}": value}}
+async def set_vars(bot_id, vars_name, value, query="vars"):
+    update_data = {"$set": {f"{query}.{vars_name}": value}}
     await varsdb.update_one({"_id": bot_id}, update_data, upsert=True)
 
 
-async def get_vars(bot_id, vars_name):
+async def get_vars(bot_id, vars_name, query="vars"):
     result = await varsdb.find_one({"_id": bot_id})
-    return result.get("vars").get(vars_name) if result else None
+    return result.get(query).get(vars_name) if result else None
+
+
+async def all_vars(user_id, query="vars"):
+    result = await varsdb.find_one({"_id": user_id})
+    return result.get(query) if result else None
 
 
 async def remove_all_vars(bot_id):
