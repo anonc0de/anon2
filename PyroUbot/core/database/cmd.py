@@ -10,6 +10,7 @@ async def get_module():
         return []
     return module["modulers"]
 
+
 async def add_module(module_name):
     moduler = await get_module()
     moduler.append(module_name)
