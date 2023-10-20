@@ -2,11 +2,24 @@ from importlib import import_module
 
 from PyroUbot import *
 
-"""
-for module, count in module_counts.items():
-        print(f"Modul {module} digunakan sebanyak {count} kali.")
-"""
 
+async def get_top_module(client, message):
+    text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
+    modules = loadModule()
+    count = await get_module_usage()
+    for mod in modules:
+        try:
+            imported_module = import_module(f"PyroUbot.modules.{mod}")
+            module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
+        except Exception:
+            continue
+        text += f"•> {module_name} : {count} \n"
+    if not text:
+        await message.reply_text("ᴛɪᴅᴀᴋ")
+    else:
+        await message.reply_text(text)
+
+"""
 async def get_top_module(client, message):
     moduler = loadModule() 
     imported_module = import_module(f"PyroUbot.modules.{moduler}")
@@ -22,7 +35,7 @@ async def get_top_module(client, message):
     await message.reply(response)
 
 
-"""
+
 for user_id in await get_seles():
         try:
             user = await bot.get_users(user_id)
