@@ -8,7 +8,7 @@ async def get_top_module(client, message):
     modules = loadModule()
     for module_name in modules:
         count = await get_module_usage(module_name)
-        text += f"•> {module_name.replace('_', ' ')} : {count} \n"
+        text += f"•> {module_name} : {count} \n"
     if not text:
         await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴍᴏᴅᴜʟᴇ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
