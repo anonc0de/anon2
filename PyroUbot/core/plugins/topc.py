@@ -10,7 +10,7 @@ async def get_top_module(client, message):
     await message.reply(txt)
 """
 
-async def get_top_modules(client, message):
+async def get_top_module(client, message):
     modules = await all_vars(client.me.id, "modules")
     sorted_modules = sorted(modules.items(), key=lambda item: item[1], reverse=True)
     
