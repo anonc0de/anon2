@@ -8,7 +8,7 @@ for module, count in module_counts.items():
 """
 
 async def get_top_module(client, message):
-    module_results = await get_module_usage(module_ame)
+    module_results = await get_module_usage(module_name)
 
     if not module_results:
         await message.reply("Tidak ada hasil penggunaan modul yang ditemukan.")
