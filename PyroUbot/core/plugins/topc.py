@@ -20,12 +20,12 @@ async def get_top_module(client, message):
     vars = await all_vars(client.me.id, "modules")
     sorted_vars = sorted(vars.items(), key=lambda item: item[1], reverse=True)
 
-    command_count = 10
+    command_count = 100
     text = message.text.split()
 
     if len(text) == 2:
         try:
-            command_count = min(max(int(text[1]), 1), 50)
+            command_count = min(max(int(text[1]), 1), 10)
         except ValueError:
             pass
 
