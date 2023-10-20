@@ -14,11 +14,13 @@ __HELP__ = f"""
 
 
 @PY.UBOT("efect")
+@PY.TOP_CMD
 async def _(client, message):
     await convert_efek(client, message)
 
 
 @PY.UBOT("listefect")
+@PY.TOP_CMD
 async def _(client, message):
     await list_cmd_efek(client, message)
 
