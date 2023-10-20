@@ -13,6 +13,7 @@ __HELP__ = f"""
 
 
 @PY.UBOT("spam|dspam")
+@PY.TOP_CMD
 async def _(client, message):
     if message.command[0] == "spam":
         await spam_cmd(client, message)
