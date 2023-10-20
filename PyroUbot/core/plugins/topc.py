@@ -5,15 +5,12 @@ from PyroUbot import *
 
 async def get_top_module(client, message):
     text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
-    count = await get_module_usage(module_name)
-    for mod in count:
-        try:
-            module = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
-        except Exception:
-            continue
-        text += f"•> {module} : {count} \n"
+    modules = loadModule()  # Mendapatkan daftar semua modul
+    for module_name in modules:
+        count = await get_module_usage(module_name)  # Mendapatkan jumlah penggunaan modul
+        text += f"•> {module_name.replace('_', ' ')} : {count} \n"
     if not text:
-        await message.reply_text("ᴛɪᴅᴀᴋ")
+        await message.reply_text("ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴍᴏᴅᴜʟᴇ ʏᴀɴɢ ᴅɪᴛᴇᴍᴜᴋᴀɴ")
     else:
         await message.reply_text(text)
 
