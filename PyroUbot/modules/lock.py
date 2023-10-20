@@ -19,10 +19,12 @@ __HELP__ = f"""
 
 
 @PY.UBOT("lock|unlock")
+@PY.TOP_CMD
 async def _(client, message):
     await locks_func(client, message)
 
 
 @PY.UBOT("locks")
+@PY.TOP_CMD
 async def _(client, message):
     await locktypes(client, message)
