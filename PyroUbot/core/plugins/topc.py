@@ -15,7 +15,7 @@ async def get_top_module(client, message):
     else:
         response = "Hasil penggunaan modul:\n"
         for result in module_results:
-            module_name = result["module_name"]
+            module_name = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
             usage_count = result["usage_count"]
             response += f"Modul {module_name}: {usage_count} kali digunakan\n"
         await message.reply(response)
