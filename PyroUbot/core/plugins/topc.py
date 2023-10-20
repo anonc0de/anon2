@@ -11,7 +11,7 @@ async def get_top_module(client, message):
 """
 
 async def get_top_module(client, message):
-    modules = await all_vars(client.me.id, "modules")
+    modules = await all_vars(bot.me.id, "modules")
     sorted_modules = sorted(modules.items(), key=lambda item: item[1], reverse=True)
     
     txt = "📊ᴛᴏᴘ ᴄᴏᴍᴍᴀɴᴅ\n"
