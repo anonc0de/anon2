@@ -16,4 +16,3 @@ from PyroUbot.core.database.otp import *
 from PyroUbot.core.database.gbans import *
 from PyroUbot.core.database.setvar import *
 from PyroUbot.core.database.variabel import *
-from PyroUbot.core.database.cmd import *
