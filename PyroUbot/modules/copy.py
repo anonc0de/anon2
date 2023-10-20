@@ -10,7 +10,6 @@ __HELP__ = f"""
 
 
 @PY.BOT("copy")
-@PY.TOP_CMD
 async def _(client, message):
     await copy_bot_msg(client, message)
 
