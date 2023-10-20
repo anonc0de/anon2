@@ -1,28 +1,20 @@
 from PyroUbot.core.database import mongodb
 from pymongo.errors import PyMongoError
 
-module_usage_collection = mongodb.module
+modules = mongodb.module
 
-def update_module(module_name):
-    try:
-        module_doc = module_usage_collection.find_one({"module_name": module_name})
-        if module_doc:
-            module_usage_collection.update_one(
-                {"module_name": module_name},
-                {"$inc": {"usage_count": 1}}
-            )
-        else:
-            module_usage_collection.insert_one({"module_name": module_name, "usage_count": 1})
-    except PyMongoError as e:
-        print(f"Error in updating module usage: {str(e)}")
 
-def usage_module():
-    result_list = []
-    try:
-        for module_doc in module_usage_collection.find():
-            module_name = module_doc["module_name"]
-            usage_count = module_doc["usage_count"]
-            result_list.append({"module_name": module_name, "usage_count": usage_count})
-    except PyMongoError as e:
-        print(f"Error in getting module usage results: {str(e)}")
-    return result_list
+async def get_module():
+    module = await modules.find_one({"module": module_name, {"usage_count": "usage_count"})
+    if not module:
+        return []
+    return module["modulers"]
+
+async def add_module(module_name):
+    moduler = await get_module()
+    moduler.append(module_name)
+    await resell.update_one(
+        {"module": module_name}, {"$inc": {"usage_count": 1}}, upsert=True
+    )
+    return True
+
