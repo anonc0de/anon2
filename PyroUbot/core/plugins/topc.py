@@ -5,12 +5,10 @@ from PyroUbot import *
 
 async def get_top_module(client, message):
     text = "<b>🗂️ᴅᴀғᴛᴀʀ ᴍᴏᴅᴜʟᴇ ᴜʙᴏᴛ\n</b>"
-    modules = loadModule()
     count = await get_module_usage(module_name)
-    for mod in modules:
+    for mod in count:
         try:
-            imported_module = import_module(f"PyroUbot.modules.{mod}")
-            module= getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
+            module = getattr(imported_module, "__MODULE__", "").replace(" ", "_").lower()
         except Exception:
             continue
         text += f"•> {module} : {count} \n"
