@@ -12,7 +12,7 @@ HELP_COMMANDS = {}
 
 async def loadPlugins():
     modules = loadModule()
-    module_name = import_module(f"PyroUbot.modules.{modules}")
+    module_name = modules
     await record_module_usage(module_name)
     for mod in modules:
         imported_module = import_module(f"PyroUbot.modules.{mod}")
