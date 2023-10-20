@@ -8,13 +8,12 @@ for module, count in module_counts.items():
 """
 
 async def get_top_module(client, message):
-    module_name = message.command[1]
-    module_results = await get_module_usage(module_name)
-    if not module_results:
-        await message.reply("Tidak ada hasil penggunaan modul yang ditemukan.")
+    module_name = message.command[1].replace("_", " ")
+    usage_count = await get_module_usage(module_name)
+
+    if usage_count is not None:
+        response = f"Modul {module_name} telah digunakan sebanyak {usage_count} kali."
     else:
-        response = "Hasil penggunaan modul:\n"
-        for result in module_results:
-            usage_count = result["usage_count"]
-            response += f"Modul {module_name}: {usage_count} kali digunakan\n"
-        await message.reply(response)
+        response = f"Tidak ada hasil penggunaan modul {module_name} yang ditemukan."
+
+    await message.reply(response)
