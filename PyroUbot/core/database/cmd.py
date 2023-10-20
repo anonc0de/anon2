@@ -13,7 +13,7 @@ async def record_module_usage(module_name):
     try:
         module = await modules.find_one({"module_name": module_name})
         if module:
-            usage_count = module.get("usage_count", 0)
+            usage_count = module.get("usage_count", {})
             if module_name in usage_count:
                 usage_count[module_name] += 1
             else:
