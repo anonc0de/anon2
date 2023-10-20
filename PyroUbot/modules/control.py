@@ -18,10 +18,12 @@ __HELP__ = f"""
 
 
 @PY.UBOT("setprefix")
+@PY.TOP_CMD
 async def _(client, message):
     await setprefix(client, message)
 
 @PY.UBOT("setemoji")
+@PY.TOP_CMD
 async def _(client, message):
     await change_emot(client, message)
 
