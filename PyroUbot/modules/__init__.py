@@ -21,11 +21,7 @@ def loadModule():
         if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
     ])
 
-    module_counts = {}
     for module in module_list:
-        if module in module_counts:
-            module_counts[module] += 1
-        else:
-            module_counts[module] = 1
+        record_module_usage(module)
 
     return module_list
