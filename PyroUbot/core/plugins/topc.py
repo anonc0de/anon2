@@ -24,5 +24,5 @@ async def get_top_module(client, message):
         txt += f" •> {command} : {count}\n"
         total_count += count
     
-    txt += f"\nTotal Penggunaan: {total_count}"
+    txt = f"\nTotal Penggunaan: {total_count}"
     await message.reply(text)
