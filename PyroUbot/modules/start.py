@@ -15,4 +15,9 @@ async def _(client, message):
 
 @PY.BOT("slot")
 async def _(client, message):
-    await animate_slot_result(client, message)
+    await slot_command(client, message)
+
+
+@PY.BOT("mulai")
+async def _(client, message):
+    await mulai_command(client, message)
