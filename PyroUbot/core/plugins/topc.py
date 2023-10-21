@@ -27,9 +27,14 @@ async def get_top_module(client, message):
     await message.reply(txt)
 
 
-def spin_slot_machine():
-    symbols = ["🍒", "🍋", "🍊", "🔔", "🛎️", "💰"]
-    result = [random.choice(symbols) for _ in range(3)]
+async def spin_slot_machine():
+    spins = 10
+    result = []
+    for _ in range(3):
+        partial_result = [random.choice(symbols) for _ in range(spins)]
+        for symbol in partial_result:
+            result.append(symbol)
+            await asyncio.sleep(0.5)
     return result
 
 
