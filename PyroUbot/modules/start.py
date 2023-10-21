@@ -13,11 +13,6 @@ async def _(client, message):
     await start_cmd(client, message)
 
 
-@PY.BOT("flip")
+@PY.BOT("slot")
 async def _(client, message):
     await flip_coin_command(client, message)
-
-
-@PY.BOT("saldo")
-async def _(client, message):
-    await balance_command(client, message)
