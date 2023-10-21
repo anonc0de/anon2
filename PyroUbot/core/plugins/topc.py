@@ -1,4 +1,10 @@
+import random
 from PyroUbot import *
+
+
+coin_sides = ["Heads", "Tails"]
+
+user_balances = {}
 
 
 async def get_top_module(client, message):
@@ -23,4 +29,36 @@ async def get_top_module(client, message):
     txt += f"\n<b>📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ</b>"
 
     await message.reply(txt)
+
+
+
+def flip_coin_command(client, message):
+    user_id = message.from_user.id
+    if user_id not in user_balances:
+        user_balances[user_id] = 100.0  # Saldo awal 100 unit
+    if len(message.text.split(" ")) > 1:
+        try:
+            bet = float(message.text.split(" ")[1])
+            if bet <= 0 or bet > user_balances[user_id]:
+                message.reply_text("Jumlah taruhan tidak valid atau saldo tidak mencukupi.")
+                return
+            result = random.choice(coin_sides)
+            if result == "Heads":
+                user_balances[user_id] += bet
+            else:
+                user_balances[user_id] -= bet
+            message.reply_text(f"Hasil pelemparan koin: {result}\nSaldo Anda sekarang: {user_balances[user_id]}")
+        except ValueError:
+            message.reply_text("Jumlah taruhan tidak valid.")
+    else:
+        message.reply_text("Penggunaan: /flip [jumlah taruhan]")
+
+
+
+def balance_command(client, message):
+    user_id = message.from_user.id
+    if user_id in user_balances:
+        message.reply_text(f"sᴀʟᴅᴏ : {user_balances[user_id]}")
+    else:
+        message.reply_text("Anda belum memiliki saldo. Gunakan /flip untuk bermain.")
 
