@@ -27,7 +27,7 @@ async def get_top_module(client, message):
     await message.reply(txt)
 
 
-async def spin_slot_machine():
+def spin_slot_machine():
     spins = 10
     result = []
     for _ in range(3):
