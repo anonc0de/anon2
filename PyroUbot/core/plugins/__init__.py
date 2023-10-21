@@ -1,3 +1,4 @@
+from PyroUbot.core.plugins.anime import *
 from PyroUbot.core.plugins.topc import *
 from PyroUbot.core.plugins.pmper import *
 from PyroUbot.core.plugins.lck import *
