@@ -40,5 +40,5 @@ async def animate_slot_result(message, result):
     for symbol in result:
         animated_message += symbol
         await asyncio.sleep(1)
-    await message.reply(f"Hasil slot: {animated_message}")
+        await message.reply(f"Hasil slot: {animated_message}")
 
