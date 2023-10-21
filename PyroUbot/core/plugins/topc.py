@@ -32,7 +32,7 @@ async def get_top_module(client, message):
 
 
 
-def flip_coin_command(client, message):
+async def flip_coin_command(client, message):
     user_id = message.from_user.id
     if user_id not in user_balances:
         user_balances[user_id] = 100.0 
