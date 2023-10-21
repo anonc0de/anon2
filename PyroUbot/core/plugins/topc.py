@@ -35,7 +35,7 @@ async def get_top_module(client, message):
 async def flip_coin_command(client, message):
     user_id = message.from_user.id
     if user_id not in user_balances:
-        user_balances[user_id] = 100.0 
+        user_balances[user_id] = 1000000.0 
     if len(message.text.split(" ")) > 1:
         try:
             bet, choice = message.text.split(" ")[1], message.text.split(" ")[2].capitalize()
