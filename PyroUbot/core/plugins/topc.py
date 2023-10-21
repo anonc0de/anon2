@@ -31,9 +31,9 @@ async def get_top_module(client, message):
 
     total_count = sum(count for _, count in sorted_vars[:command_count])
 
-    txt = "📊 ᴛᴏᴘ ᴄᴏᴍᴍᴀɴᴅ\n"
+    txt = "📊 ᴛᴏᴘ ᴄᴏᴍᴍᴀɴᴅ\n\n"
     for command, count in sorted_vars[:command_count]:
-        txt += f" •> {command} : {count}\n"
+        txt += f" •> {command} : {count}\n\n"
 
     txt += f"📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ"
 
