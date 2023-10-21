@@ -35,5 +35,5 @@ def spin_slot_machine():
 
 async def flip_coin_command(client, message):
     result = spin_slot_machine()
-    message.reply_text(f"Hasil slot: {', '.join(result)}")
+    await message.reply(f"Hasil slot: {', '.join(result)}")
 
