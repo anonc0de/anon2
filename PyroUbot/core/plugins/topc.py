@@ -1,4 +1,6 @@
+import asyncio
 import random
+
 from PyroUbot import *
 
 
@@ -28,16 +30,15 @@ async def get_top_module(client, message):
 
 
 def spin_slot_machine():
-    spins = 10
-    result = []
-    for _ in range(3):
-        partial_result = [random.choice(symbols) for _ in range(spins)]
-        for symbol in partial_result:
-            result.append(symbol)
+    symbols = ["🍒", "🍋", "🍊", "🔔", "🛎️", "💰"]
+    result = [random.choice(symbols) for _ in range(3)]
     return result
 
 
-async def flip_coin_command(client, message):
-    result = spin_slot_machine()
-    await message.reply(f"Hasil slot: {', '.join(result)}")
+async def animate_slot_result(message, result):
+    animated_message = ""
+    for symbol in result:
+        animated_message += symbol
+        await asyncio.sleep(1)
+    await message.reply_text(f"Hasil slot: {animated_message}", parse_mode="HTML")
 
