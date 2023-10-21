@@ -32,26 +32,31 @@ async def get_top_module(client, message):
 
 
 
-async def flip_coin_command(client, message):
+def flip_coin_command(client, message):
     user_id = message.from_user.id
     if user_id not in user_balances:
-        user_balances[user_id] = 100.0  # Saldo awal 100 unit
+        user_balances[user_id] = 100.0 
     if len(message.text.split(" ")) > 1:
         try:
-            bet = float(message.text.split(" ")[1])
+            bet, choice = message.text.split(" ")[1], message.text.split(" ")[2].capitalize()
+            if choice not in coin_sides:
+                await message.reply("Pilihan tidak valid. Gunakan 'Heads' atau 'Tails'.")
+                return
+            bet = float(bet)
             if bet <= 0 or bet > user_balances[user_id]:
                 await message.reply("Jumlah taruhan tidak valid atau saldo tidak mencukupi.")
                 return
             result = random.choice(coin_sides)
-            if result == "Heads":
+            if result == choice:
                 user_balances[user_id] += bet
+                await message.reply(f"Hasil pelemparan koin: {result}\nAnda MENANG! Saldo Anda sekarang: {user_balances[user_id]}")
             else:
                 user_balances[user_id] -= bet
-            await message.reply(f"Hasil pelemparan koin: {result}\nSaldo Anda sekarang: {user_balances[user_id]}")
+                await message.reply(f"Hasil pelemparan koin: {result}\nAnda KALAH! Saldo Anda sekarang: {user_balances[user_id]}")
         except ValueError:
-            await message.reply("Jumlah taruhan tidak valid.")
+            await message.reply("Penggunaan: /flip [jumlah taruhan] [Heads/Tails]")
     else:
-        await message.reply("Penggunaan: /flip [jumlah taruhan]")
+        await message.reply("Penggunaan: /flip [jumlah taruhan] [Heads/Tails]")
 
 
 
