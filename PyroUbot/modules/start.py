@@ -13,9 +13,9 @@ async def _(client, message):
     await start_cmd(client, message)
 
 
-@PY.BOT("slot")
+@PY.BOT("roll")
 async def _(client, message):
-    await slot_command(client, message)
+    await bet_command(client, message)
 
 
 @PY.BOT("mulai")
