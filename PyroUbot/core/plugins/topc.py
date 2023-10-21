@@ -2,16 +2,12 @@ import random
 from PyroUbot import *
 
 
-coin_sides = ["Heads", "Tails"]
-
-user_balances = {}
-
 
 async def get_top_module(client, message):
     vars = await all_vars(client.me.id, "modules")
     sorted_vars = sorted(vars.items(), key=lambda item: item[1], reverse=True)
 
-    command_count = 100
+    command_count = 999
     text = message.text.split()
 
     if len(text) == 2:
@@ -31,39 +27,13 @@ async def get_top_module(client, message):
     await message.reply(txt)
 
 
+def spin_slot_machine():
+    symbols = ["🍒", "🍋", "🍊", "🔔", "🛎️", "💰"]
+    result = [random.choice(symbols) for _ in range(3)]
+    return result
+
 
 async def flip_coin_command(client, message):
-    user_id = message.from_user.id
-    if user_id not in user_balances:
-        user_balances[user_id] = 1000000.0 
-    if len(message.text.split(" ")) > 1:
-        try:
-            bet, choice = message.text.split(" ")[1], message.text.split(" ")[2].capitalize()
-            if choice not in coin_sides:
-                await message.reply("Pilihan tidak valid. Gunakan 'Heads' atau 'Tails'.")
-                return
-            bet = float(bet)
-            if bet <= 0 or bet > user_balances[user_id]:
-                await message.reply("Jumlah taruhan tidak valid atau saldo tidak mencukupi.")
-                return
-            result = random.choice(coin_sides)
-            if result == choice:
-                user_balances[user_id] += bet
-                await message.reply(f"Hasil pelemparan koin: {result}\nAnda MENANG! Saldo Anda sekarang: {user_balances[user_id]}")
-            else:
-                user_balances[user_id] -= bet
-                await message.reply(f"Hasil pelemparan koin: {result}\nAnda KALAH! Saldo Anda sekarang: {user_balances[user_id]}")
-        except ValueError:
-            await message.reply("Penggunaan: /flip [jumlah taruhan] [Heads/Tails]")
-    else:
-        await message.reply("Penggunaan: /flip [jumlah taruhan] [Heads/Tails]")
-
-
-
-async def balance_command(client, message):
-    user_id = message.from_user.id
-    if user_id in user_balances:
-        await message.reply(f"sᴀʟᴅᴏ : {user_balances[user_id]}")
-    else:
-        await message.reply("Anda belum memiliki saldo. Gunakan /flip untuk bermain.")
+    result = spin_slot_machine()
+    message.reply_text(f"Hasil slot: {', '.join(result)}")
 
