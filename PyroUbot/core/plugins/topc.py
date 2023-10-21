@@ -34,7 +34,6 @@ def spin_slot_machine():
         partial_result = [random.choice(symbols) for _ in range(spins)]
         for symbol in partial_result:
             result.append(symbol)
-            await asyncio.sleep(0.5)
     return result
 
 
