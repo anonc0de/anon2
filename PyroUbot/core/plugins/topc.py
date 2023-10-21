@@ -32,7 +32,7 @@ async def get_top_module(client, message):
 
 
 
-def flip_coin_command(client, message):
+async def flip_coin_command(client, message):
     user_id = message.from_user.id
     if user_id not in user_balances:
         user_balances[user_id] = 100.0  # Saldo awal 100 unit
@@ -55,7 +55,7 @@ def flip_coin_command(client, message):
 
 
 
-def balance_command(client, message):
+async def balance_command(client, message):
     user_id = message.from_user.id
     if user_id in user_balances:
         await message.reply(f"sᴀʟᴅᴏ : {user_balances[user_id]}")
