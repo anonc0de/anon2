@@ -16,11 +16,11 @@ async def get_top_module(client, message):
 
     total_count = sum(count for _, count in sorted_vars[:command_count])
 
-    txt = "📊 ᴛᴏᴘ ᴄᴏᴍᴍᴀɴᴅ\n\n"
+    txt = "<b>📊 ᴛᴏᴘ ᴄᴏᴍᴍᴀɴᴅ</b>\n\n"
     for command, count in sorted_vars[:command_count]:
-        txt += f" •> {command} : {count}\n"
+        txt += f"<b> •> {command} : {count}</b>\n"
 
-    txt += f"\n📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ"
+    txt += f"\n<b>📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ</b>"
 
     await message.reply(txt)
 
