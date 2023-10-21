@@ -33,9 +33,9 @@ async def get_top_module(client, message):
 
     txt = "📊 ᴛᴏᴘ ᴄᴏᴍᴍᴀɴᴅ\n\n"
     for command, count in sorted_vars[:command_count]:
-        txt += f" •> {command} : {count}\n\n"
+        txt += f" •> {command} : {count}\n"
 
-    txt += f"📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ"
+    txt += f"\n📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ"
 
     await message.reply(txt)
 
