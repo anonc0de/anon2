@@ -15,4 +15,4 @@ async def _(client, message):
 
 @PY.BOT("slot")
 async def _(client, message):
-    await flip_coin_command(client, message)
+    await animate_slot_result(client, message)
