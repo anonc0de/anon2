@@ -36,9 +36,9 @@ def spin_slot_machine():
 
 
 async def animate_slot_result(message, result):
-    animated_message = ""
+    animated_message = "hasil slot :"
     for symbol in result:
         animated_message += symbol
         await asyncio.sleep(1)
-        await message.reply(f"Hasil slot: {animated_message}")
+    await message.reply_text(animated_message)
 
