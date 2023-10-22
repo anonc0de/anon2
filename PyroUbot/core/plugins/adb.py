@@ -250,11 +250,12 @@ async def bikin_ubot(client, callback_query):
         await remove_prem(callback_query.from_user.id)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
+    SH = await ubot.get_prefix(new_client.me.id)    
     text_done = f"""
-<b>🤖 USERBOT TELAH AKTIFKAN!!!</b>
+<b>🤖 ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
 <b>👤 ɴᴀᴍᴇ :</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a>
 <b>📋 ɪᴅ :</b> <code>{new_client.me.id}</code>
-<b>🔧 ᴘʀᴇғɪxᴇs :</b>
+<b>🔧 ᴘʀᴇғɪxᴇs :</b> <code>{' '.join(SH)}</code>
 <b>📅 ᴇxᴘɪʀᴇᴅ :</b>
         """
     await bot_msg.edit(text_done)
