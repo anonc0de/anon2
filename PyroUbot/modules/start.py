@@ -13,11 +13,6 @@ async def _(client, message):
     await start_cmd(client, message)
 
 
-@PY.BOT("roll")
+@PY.BOT("slot")
 async def _(client, message):
-    await bet_command(client, message)
-
-
-@PY.BOT("mulai")
-async def _(client, message):
-    await mulai_command(client, message)
+    await slot_command(client, message)
