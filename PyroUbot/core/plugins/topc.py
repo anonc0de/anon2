@@ -1,6 +1,3 @@
-import asyncio
-import random
-
 from PyroUbot import *
 
 
@@ -26,21 +23,4 @@ async def get_top_module(client, message):
     txt += f"\n<b>📈 ᴛᴏᴛᴀʟ: {total_count} ᴄᴏᴍᴍᴀɴᴅ</b>"
 
     await message.reply(txt)
-
-
-
-symbols = ["🍒", "🍋", "🍊", "🔔", "🛎️", "💰"]
-
-
-async def slot_command(client, message):
-    user_id = message.from_user.id
-    result = [random.choice(symbols) for _ in range(3)]
-    SH = await message.reply("🎰 Spinning...")
-    await asyncio.sleep(1)
-    for _ in range(2):
-        await asyncio.sleep(1)
-        new_result = [random.choice(symbols) for _ in range(3)]
-        await SH.edit(f"🎰 {' '.join(new_result)}")
-    await asyncio.sleep(1)
-    await SH.edit(f"🎰 {' '.join(result)}")
 
