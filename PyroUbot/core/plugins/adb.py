@@ -250,7 +250,10 @@ async def bikin_ubot(client, callback_query):
         await remove_prem(callback_query.from_user.id)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-    SH = await ubot.get_prefix(new_client.me.id)    
+    SH = await ubot.get_prefix(new_client.me.id)
+    buttons = [
+            [InlineKeyboardButton("⬅️ ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")],
+        ]
     text_done = f"""
 <b>🤖 ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
 <b>👤 ɴᴀᴍᴇ :</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a>
@@ -258,7 +261,8 @@ async def bikin_ubot(client, callback_query):
 <b>🔧 ᴘʀᴇғɪxᴇs :</b> <code>{' '.join(SH)}</code>
 <b>📅 ᴇxᴘɪʀᴇᴅ :</b>
         """
-    await bot_msg.edit(text_done)
+    await bot_msg.edit(text_done, disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons))
     await install_my_peer(new_client)
     try:
         await new_client.join_chat("MutualanConsterly")
