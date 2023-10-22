@@ -32,6 +32,7 @@ async def _(client, message):
 
 
 @PY.BOT("top", FILTERS.OWNER)
+@PY.UBOT("top", FILTERS.OWNER)
 async def _(client, message):
     await get_top_module(client, message)
 
