@@ -11,9 +11,3 @@ async def _(client, message):
 @PY.PRIVATE
 async def _(client, message):
     await start_cmd(client, message)
-
-
-@PY.UBOT("slot")
-@PY.TOP_CMD
-async def _(client, message):
-    await slot_command(client, message)
