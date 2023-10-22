@@ -1,4 +1,4 @@
-import time
+import asyncio
 import random
 
 from PyroUbot import *
@@ -36,11 +36,11 @@ async def slot_command(client, message):
     user_id = message.from_user.id
     result = [random.choice(symbols) for _ in range(3)]
     SH = await message.reply("🎰 Spinning...")
-    time.sleep(1)
+    await asyncio.sleep(1)
     for _ in range(2):
-        time.sleep(1)
+        await asyncio.sleep(1)
         new_result = [random.choice(symbols) for _ in range(3)]
         await SH.edit(f"🎰 {' '.join(new_result)}")
-    time.sleep(1)
+    await asyncio.sleep(1)
     await SH.edit(f"🎰 {' '.join(result)}")
 
