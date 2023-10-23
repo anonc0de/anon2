@@ -22,28 +22,24 @@ __HELP__ = f"""
 
 
 @PY.UBOT("kickme", FILTERS.ME_GROUP)
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await leave(client, message)
 
 
 @PY.UBOT("join")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await join(client, message)
 
 
 @PY.UBOT("leaveallgc")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await kickmeall(client, message)
 
 
 @PY.UBOT("leaveallch")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await kickmeallch(client, message)
