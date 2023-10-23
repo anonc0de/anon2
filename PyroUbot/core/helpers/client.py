@@ -123,7 +123,7 @@ class PY:
         return function
 
     def SUDO(func):
-        async def wrapper(message: types.Message):
+        async def wrapper(client, message):
            if await check_sudo(client, message):
                await func(message)
 
