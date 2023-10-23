@@ -122,14 +122,10 @@ class PY:
 
         return function
 
-    def SUDO(command=None):
-        def decorator(func):
-            async def wrapper(client, message):
-                if command is None or message.text == command:
-                    if await check_sudo(client, message.from_user.id):
-                        return await func(client, message)
+    def SUDO(func):
+        async def wrapper(message: types.Message):
+           if await check_sudo(client, message):
+               await func(message)
 
-            return wrapper
-
-        return decorator
+        return wrapper
     
