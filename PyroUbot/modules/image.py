@@ -19,28 +19,24 @@ __HELP__ = f"""
 
 
 @PY.UBOT("rbg")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await rbg_cmd(client, message)
 
 
-@PY.UBOT("blur")
-@PY.SUDO()
+@PY.UBOT("blur"
 @PY.TOP_CMD
 async def _(client, message):
     await blur_cmd(client, message)
 
 
 @PY.UBOT("negative")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await negative_cmd(client, message)
 
 
 @PY.UBOT("miror")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await miror_cmd(client, message)
