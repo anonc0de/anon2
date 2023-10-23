@@ -15,7 +15,6 @@ async def _(client, message):
 
 
 @PY.UBOT("logs")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
