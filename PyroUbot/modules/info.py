@@ -13,12 +13,14 @@ __HELP__ = f"""
 
 
 @PY.UBOT("info")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await info_cmd(client, message)
 
 
 @PY.UBOT("cinfo")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await cinfo_cmd(client, message)
