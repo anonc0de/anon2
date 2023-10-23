@@ -4,13 +4,6 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-async def check_sudo(client, user_id):
-    sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
-    if client.me.id not in sudo_id:
-        sudo_id.append(client.me.id)
-    return user_id in sudo_id
-
-
 
 class FILTERS:
     ME = filters.me
@@ -126,7 +119,7 @@ class PY:
         def decorator(func):
             async def wrapper(client, message):
                 if command is None or message.text == command:
-                    if await check_sudo(client, message.from_user.id):
+                    if await get_list_from_vars(client.me.id, "SUDO_USERS")
                         return await func(client, message)
             return wrapper
 
