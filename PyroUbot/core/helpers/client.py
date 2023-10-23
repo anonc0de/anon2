@@ -118,7 +118,7 @@ class PY:
         async def function(client, message):
             sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
             if client.me.id not in sudo_id:
-                sudo_id.appehd(client.me.id)
+                sudo_id.append(client.me.id)
             if message.from_user.id not in sudo_id:
                 return
             return await func(client, message)
