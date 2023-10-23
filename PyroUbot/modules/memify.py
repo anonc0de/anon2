@@ -10,7 +10,6 @@ __HELP__ = f"""
 
 
 @PY.UBOT("mmf")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await memify_cmd(client, message)
