@@ -11,7 +11,6 @@ __HELP__ = f"""
 
 
 @PY.UBOT("ipinfo")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await hacker_lacak_target(client, message)
