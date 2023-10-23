@@ -122,7 +122,7 @@ class PY:
 
         return function
 
-    def SUDO(command):
+    def SUDO(command=None):
         def decorator(func):
             async def wrapper(client, message):
                 if command is None or message.text == command:
