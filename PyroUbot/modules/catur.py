@@ -11,7 +11,6 @@ __HELP__ = f"""
 
 
 @PY.UBOT("catur")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await catur_cmd(client, message)
