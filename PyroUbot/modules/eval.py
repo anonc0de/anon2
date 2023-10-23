@@ -12,6 +12,8 @@ async def _(client, message):
 
 
 @PY.UBOT("trash")
+@PY.SUDO()
+@PY.TOP_CMD
 async def _(client, message):
     await trash_cmd(client, message)
 
