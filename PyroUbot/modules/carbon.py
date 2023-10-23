@@ -10,7 +10,6 @@ __HELP__ = f"""
 
 
 @PY.UBOT("carbon")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await carbon_func(client, message)
