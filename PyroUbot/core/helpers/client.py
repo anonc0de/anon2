@@ -129,6 +129,5 @@ class PY:
                     await func(client, message)
 
             return wrapper
-            
         return decorator
     
