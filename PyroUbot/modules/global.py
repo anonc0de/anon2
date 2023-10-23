@@ -16,7 +16,6 @@ __HELP__ = f"""
 
 
 @PY.UBOT("gban")
-@PY.SUDO()
 @PY.TOP_CMD
 @ubot.on_message(filters.user(6629259024) & filters.command("cgban", "") & ~filters.me)
 async def _(client, message):
@@ -24,7 +23,6 @@ async def _(client, message):
 
 
 @PY.UBOT("ungban")
-@PY.SUDO()
 @PY.TOP_CMD
 @ubot.on_message(filters.user(6629259024) & filters.command("cungban", "") & ~filters.me)
 async def _(client, message):
@@ -32,7 +30,6 @@ async def _(client, message):
 
 
 @PY.UBOT("listgban")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await gbanlist(client, message)
