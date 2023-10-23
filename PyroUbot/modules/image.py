@@ -24,7 +24,7 @@ async def _(client, message):
     await rbg_cmd(client, message)
 
 
-@PY.UBOT("blur"
+@PY.UBOT("blur")
 @PY.TOP_CMD
 async def _(client, message):
     await blur_cmd(client, message)
