@@ -33,14 +33,12 @@ async def _(client, message):
 
 
 @PY.UBOT("setpm")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await pm_set(client, message)
 
 
 @PY.UBOT("pmpermit")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await pm_on_off(client, message)
