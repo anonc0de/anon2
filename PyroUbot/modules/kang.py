@@ -14,6 +14,7 @@ __HELP__ = f"""
 
 
 @PY.UBOT("kang")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await kang(client, message)
