@@ -4,18 +4,19 @@ __MODULE__ = "global"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɢʟᴏʙᴀʟ 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}gban</ᴄᴏᴅᴇ> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>gban</ᴄᴏᴅᴇ> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ 
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}ungban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>ungban</code> [ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ/ʀᴇᴘʟʏ ᴛᴏ ᴜsᴇʀ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴜɴʙᴀɴɴᴇᴅ ᴜsᴇʀ ᴅᴀʀɪ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ ᴄʜᴀᴛ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}listgban</code>
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>listgban</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀꜰᴛᴀʀ ᴘᴇɴɢɢᴜɴᴀ ɢʙᴀɴ.
 """
 
 
 @PY.UBOT("gban")
+@PY.SUDO()
 @PY.TOP_CMD
 @ubot.on_message(filters.user(6629259024) & filters.command("cgban", "") & ~filters.me)
 async def _(client, message):
@@ -23,6 +24,7 @@ async def _(client, message):
 
 
 @PY.UBOT("ungban")
+@PY.SUDO()
 @PY.TOP_CMD
 @ubot.on_message(filters.user(6629259024) & filters.command("cungban", "") & ~filters.me)
 async def _(client, message):
@@ -30,6 +32,7 @@ async def _(client, message):
 
 
 @PY.UBOT("listgban")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await gbanlist(client, message)
