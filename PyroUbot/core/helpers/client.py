@@ -123,3 +123,5 @@ class PY:
                 return
             return await func(client, message)
 
+        return function
+
