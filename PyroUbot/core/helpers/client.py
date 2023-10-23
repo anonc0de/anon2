@@ -124,7 +124,7 @@ class PY:
 
     def SUDO(func):
         async def wrapper(client, message):
-            if await check_sudo(message.bot, message.from_user.id):
+            if await check_sudo(message.client, message.from_user.id):
                 await func(message)
 
         return wrapper
