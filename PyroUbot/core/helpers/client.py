@@ -119,7 +119,7 @@ class PY:
         def decorator(func):
             async def wrapper(client, message):
                 if command is None or message.text == command:
-                    if await get_list_from_vars(client.me.id, "SUDO_USERS")
+                    if await get_list_from_vars(client.me.id, "SUDO_USERS"):
                         return await func(client, message)
             return wrapper
 
