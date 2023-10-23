@@ -12,6 +12,8 @@ from pymediainfo import MediaInfo
 from pyrogram.enums import ChatType
 from pyrogram.errors import *
 
+from PyroUbot import *
+
 
 def get_message(message):
     msg = (
@@ -272,3 +274,9 @@ async def dl_pic(client, download):
     get_photo = BytesIO(content)
     return get_photo
 
+
+async def check_sudo(client, user_id):
+    sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
+    if client.me.id not in sudo_id:
+        sudo_id.append(client.me.id)
+    return user_id in sudo_id
