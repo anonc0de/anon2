@@ -114,18 +114,7 @@ class PY:
             return await func(client, message)
 
         return function
-
-    def SUDO(command=None):
-        def decorator(func):
-            async def wrapper(client, message):
-                if command is None or message.text == command:
-                    if await get_list_from_vars(client.me.id, "SUDO_USERS"):
-                        return await func(client, message)
-            return wrapper
-
-        return decorator
     
-"""
     def SUDO(func):
         async def function(client, message):
             sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
@@ -134,4 +123,3 @@ class PY:
             if message.from_user.id in sudo_id:
                 return await func(client, message)
         return function
-"""
