@@ -10,7 +10,6 @@ __HELP__ = f"""
 
 
 @PY.UBOT("limit")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await limit_cmd(client, message)
