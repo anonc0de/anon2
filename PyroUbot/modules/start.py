@@ -2,9 +2,9 @@ from .. import *
 
 
 # @PY.UBOT("ping")
-@ubot.on_message(filters.command("ping"))
+@ubot.on_message(ubot.cmd_prefix("ping"))
 @PY.TOP_CMD
-# @PY.SUDO
+@PY.SUDO
 async def _(client, message):
     await ping_cmd(client, message)
 
