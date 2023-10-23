@@ -4,12 +4,13 @@ __MODULE__ = "font"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ꜰᴏɴᴛ 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}font</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>font</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴇxᴛ ꜰᴏɴᴛ ᴅᴇɴɢᴀɴ ᴛᴀᴍᴘɪʟᴀɴ ʏᴀɴɢ ʙᴇʀʙᴇᴅᴀ
 """
 
 
 @PY.UBOT("font")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await font_message(client, message)
