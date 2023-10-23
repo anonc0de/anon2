@@ -25,42 +25,36 @@ __HELP__ = f"""
 
 
 @PY.UBOT("toanime")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await convert_anime(client, message)
 
 
 @PY.UBOT("toimg")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await convert_photo(client, message)
 
 
 @PY.UBOT("tosticker")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await convert_sticker(client, message)
 
 
 @PY.UBOT("togif")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await convert_gif(client, message)
 
 
 @PY.UBOT("toaudio")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await convert_audio(client, message)
 
 
 @PY.UBOT("colong")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await colong_cmn(client, message)
