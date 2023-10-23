@@ -22,35 +22,30 @@ __HELP__ = f"""
 
 
 @PY.UBOT("addnote")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await addnote_cmd(client, message)
 
 
 @PY.UBOT("get")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await get_cmd(client, message)
 
 
 @PY.INLINE("^get_notes")
-@PY.SUDO()
 @INLINE.QUERY
 async def _(client, inline_query):
     await get_notes_button(client, inline_query)
 
 
 @PY.UBOT("delnote")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await delnote_cmd(client, message)
 
 
 @PY.UBOT("notes")
-@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await notes_cmd(client, message)
