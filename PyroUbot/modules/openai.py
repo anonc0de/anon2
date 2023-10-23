@@ -16,18 +16,21 @@ __HELP__ = f"""
 
 
 @PY.UBOT("ai|ask")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await ai_cmd(client, message)
 
 
 @PY.UBOT("photo")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await dalle_cmd(client, message)
 
 
 @PY.UBOT("stt")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await stt_cmd(client, message)
