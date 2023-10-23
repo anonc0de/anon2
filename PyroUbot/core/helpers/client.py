@@ -115,7 +115,7 @@ class PY:
         return function
 
     def SUDO(func):
-        async def function(client. message):
+        async def function(client, message):
             sudo_id = await get_vars(bot.me.id, user_id)
             if client.me.id not in sudo_id:
                 sudo_id.appehd(client.me.id)
