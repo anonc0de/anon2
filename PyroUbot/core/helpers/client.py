@@ -4,12 +4,6 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-async def check_sudo(client, user_id):
-    sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
-    if client.me.id not in sudo_id:
-        sudo_id.append(client.me.id)
-    return user_id in sudo_id
-
 
 class FILTERS:
     ME = filters.me
@@ -129,27 +123,30 @@ class PY:
 
         return function
 
-"""    
-    def SUDO(command):
-        def decorator(func):
-            async def wrapper(client, message):
-                if command == message.commaand[0].lower():
-                    if await check_sudo(client, message.from_user.id):
-                        return await func(client, message)
-
-            return wrapper
-
-        return decorator
-"""        
-
-"""
     @staticmethod
-    def SUDO(func):
+    def START(func):
         async def function(client, message):
-            sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
-            if client.me.id not in sudo_id:
-                sudo_id.append(client.me.id)
-            if message.from_user.id in sudo_id:
-                return await func(client, message)
+            seved_users = await get_list_from_vars(client.me.id, "SAVED_USERS")
+            user_id = message.from_user.id
+            if user_id != OWNER_ID:
+                if user_id not in seved_users:
+                    await add_to_vars(client.me.id, "SAVED_USERS", user_id)
+                user_link = f"<a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>"
+                formatted_text = f"{user_link}\n\n<code>{message.text}</code>"
+                buttons = [
+                    [
+                        InlineKeyboardButton(
+                            "👤 ᴅᴀᴘᴀᴛᴋᴀɴ ᴘʀᴏғɪʟ 👤",
+                            callback_data=f"profil {message.from_user.id}",
+                        ),
+                    ]
+                ]
+                await client.send_message(
+                    OWNER_ID,
+                    formatted_text,
+                    reply_markup=InlineKeyboardMarkup(buttons),
+                )
+            return await func(client, message)
+
         return function
-"""
+
