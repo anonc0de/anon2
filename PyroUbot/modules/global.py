@@ -22,7 +22,7 @@ async def _(client, message):
 
 
 @PY.UBOT("ungban")
-@PY.TOP_CM
+@PY.TOP_CMD
 async def _(client, message):
     await cung_ban(client, message)
 
