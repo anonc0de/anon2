@@ -156,7 +156,7 @@ class PY:
         def wrapper(func):
             @ubot.on_message(ubot.cmd_prefix(command))
             async def wrapped_func(client, message):
-                sudo_id = [1964437366, 5876222922]
+                sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
                 user_id = message.from_user.id if message.from_user else message.chat.id
                 if user_id in sudo_id:
                     await func(client, message)
