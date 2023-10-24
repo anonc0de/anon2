@@ -5,10 +5,11 @@ from PyroUbot import *
 
 
 async def check_sudo(client, user_id):
-    sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
-    if client.me.id not in sudo_id:
-        sudo_id.append(client.me.id)
-    return user_id in sudo_id
+    me = await client.get_me()
+    sudo_users = await client.get_list_from_vars(me.id, "SUDO_USERS")
+    if me.id not in sudo_users:
+        sudo_users.append(me.id)
+    return user_id in sudo_users
 
 
 class FILTERS:
