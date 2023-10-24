@@ -129,6 +129,7 @@ class PY:
 
         return function
 
+"""    
     def SUDO(command):
         def decorator(func):
             async def wrapper(client, message):
@@ -139,6 +140,7 @@ class PY:
             return wrapper
 
         return decorator
+"""        
 
 """
     @staticmethod
