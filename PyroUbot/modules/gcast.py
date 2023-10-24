@@ -18,7 +18,8 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("gcast")
+# @PY.UBOT("gcast")
+@ubot.on_message(ubot.cmd_prefix("ping"))
 @PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
