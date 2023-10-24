@@ -19,6 +19,7 @@ __HELP__ = f"""
 
 
 @PY.UBOT("gcast")
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
