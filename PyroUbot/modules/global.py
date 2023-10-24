@@ -17,14 +17,12 @@ __HELP__ = f"""
 
 @PY.UBOT("gban")
 @PY.TOP_CMD
-@ubot.on_message(filters.user(6629259024) & filters.command("cgban", "") & ~filters.me)
 async def _(client, message):
     await global_banned(client, message)
 
 
 @PY.UBOT("ungban")
-@PY.TOP_CMD
-@ubot.on_message(filters.user(6629259024) & filters.command("cungban", "") & ~filters.me)
+@PY.TOP_CM
 async def _(client, message):
     await cung_ban(client, message)
 
