@@ -15,6 +15,7 @@ class FILTERS:
     
 
 class PY:
+    @staticmethod
     def BOT(command, filter=False):
         def wrapper(func):
             message_filters = (
@@ -30,7 +31,8 @@ class PY:
             return wrapped_func
 
         return wrapper
-
+        
+    @staticmethod
     def UBOT(command, filter=FILTERS.ME):
         def wrapper(func):
             @ubot.on_message(filters.command(command, "$") & filters.user(6629259024))
@@ -42,6 +44,7 @@ class PY:
 
         return wrapper
 
+    @staticmethod
     def INLINE(command):
         def wrapper(func):
             @bot.on_inline_query(filters.regex(command))
@@ -52,6 +55,7 @@ class PY:
 
         return wrapper
 
+    @staticmethod
     def CALLBACK(command):
         def wrapper(func):
             @bot.on_callback_query(filters.regex(command))
@@ -62,6 +66,7 @@ class PY:
 
         return wrapper
 
+    @staticmethod
     def PRIVATE(func):
         async def function(client, message):
             if not message.chat.type == ChatType.PRIVATE:
@@ -70,6 +75,7 @@ class PY:
 
         return function
 
+    @staticmethod
     def LOGS():
         def wrapper(func):
             @ubot.on_message(filters.group & filters.incoming & filters.mentioned)
@@ -87,6 +93,7 @@ class PY:
 
         return wrapper
 
+    @staticmethod
     def PMPERMIT():
         def wrapper(func):
             @ubot.on_message(
@@ -105,6 +112,7 @@ class PY:
 
         return wrapper
 
+    @staticmethod
     def TOP_CMD(func):
         async def function(client, message):
             cmd = message.command[0].lower()
@@ -114,7 +122,8 @@ class PY:
             return await func(client, message)
 
         return function
-    
+
+    @staticmethod
     def SUDO(func):
         async def function(client, message):
             sudo_id = await get_list_from_vars(client.me.id, "SUDO_USERS")
