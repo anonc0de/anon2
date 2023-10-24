@@ -2,7 +2,7 @@ from .. import *
 
 
 @PY.UBOT("ping")
-@PY.SUDO
+@PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
     await ping_cmd(client, message)
