@@ -1,7 +1,8 @@
 from .. import *
 
 
-@PY.UBOT("ping")
+# @PY.UBOT("ping")
+@ubot.on_message(ubot.cmd_prefix("ping"))
 @PY.SUDO()
 @PY.TOP_CMD
 async def _(client, message):
