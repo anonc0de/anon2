@@ -38,6 +38,23 @@ async def prem_user(client, message):
         await Tm.edit(
             f"<b>•> ɪᴅ: {get_id}\n•> ɴᴀᴍᴇ: {user.mention}\n•> ᴍᴀsᴀ ᴀᴋᴛɪғ: {get_bulan} ʙᴜʟᴀɴ\n•> ᴋᴇᴛᴇʀᴀɴɢᴀɴ: 𝘗𝘳𝘦𝘮𝘪𝘶𝘮\n•> ʙʏ: consterlyxbot.t.me</b>"
         )
+        await bot.send_message(
+            OWNER_ID,
+            f"<b>•> ɪᴅ-sᴇʟʟᴇʀ: {message.from_user.id}\n\n•> ɪᴅ-ᴄᴜsᴛᴏᴍᴇʀ: {get_id}</b>",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "🔱 sᴇʟʟᴇʀ",
+                            callback_data=f"profil {message.from_user.id}",
+                        ),
+                        InlineKeyboardButton(
+                            "ᴄᴜsᴛᴏᴍᴇʀ ⚜️", callback_data=f"profil {get_id}"
+                        ),
+                    ],
+                ]
+            ),
+        )
     else:
         await Tm.delete()
         await message.reply_text("ᴛᴇʀᴊᴀᴅɪ ᴋᴇsᴀʟᴀʜᴀɴ ʏᴀɴɢ ᴛɪᴅᴀᴋ ᴅɪᴋᴇᴛᴀʜᴜɪ")
