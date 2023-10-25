@@ -1,7 +1,6 @@
 from .. import *
 
 
-@PY.SUDO("ping")
 @PY.UBOT("ping")
 @PY.TOP_CMD
 async def _(client, message):
