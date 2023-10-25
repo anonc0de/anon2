@@ -6,7 +6,7 @@ RUN apt-get update -y
 
 RUN pip3 install -U pip
 
-RUN pip3 install -U -r req*
+RUN pip3 install -r req*
 
 COPY . .
 
