@@ -44,7 +44,7 @@ async def _(client, message):
     await pm_on_off(client, message)
 
 
-# @PY.INLINE("pm_pr")
+@PY.INLINE("pm_pr")
 async def _(client, message):
     await pm_sh(client, message)
 
