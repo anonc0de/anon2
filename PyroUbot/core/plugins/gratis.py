@@ -46,8 +46,6 @@ async def need_gratis(client, callback_query):
             """
 <b>✅ ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ sɪᴀᴘᴋᴀɴ ʙᴀʜᴀɴ ʙᴇʀɪᴋᴜᴛ
 
-    • <code>ᴀᴘɪ_ɪᴅ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
-    • <code>ᴀᴘɪ_ʜᴀsʜ</code>: ᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀʀɪ my.telegram.org
     • <code>ᴘʜᴏɴᴇ_ɴᴜᴍʙᴇʀ</code>: ɴᴏᴍᴇʀ ʜᴘ ᴀᴋᴜɴ ᴛᴇʟᴇɢʀᴀᴍ
 
 ☑️ ᴊɪᴋᴀ sᴜᴅᴀʜ ᴛᴇʀsᴇᴅɪᴀ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ ᴛᴏᴍʙᴏɪ ᴅɪʙᴀᴡᴀʜ</b>
@@ -59,35 +57,7 @@ async def need_gratis(client, callback_query):
 
 async def bikin_gratis(client, callback_query):
     user_id = callback_query.from_user.id
-    try:
-        await callback_query.message.delete()
-        api = await bot.ask(
-            user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ɪᴅ</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴀᴛᴀʟᴋᴀɴ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
-            timeout=300,
-        )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
-    if await is_cancel(callback_query, api.text):
-        return
-    api_id = api.text
-    try:
-        hash = await bot.ask(
-            user_id,
-            (
-                "<b>sɪʟᴀʜᴋᴀɴ ᴍᴀsᴜᴋᴋᴀɴ ᴀᴘɪ_ʜᴀsʜ</b>\n"
-                "\n<b>ɢᴜɴᴀᴋᴀɴ /cancel ᴜɴᴛᴜᴋ ᴘʀᴏsᴇs ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ</b>"
-            ),
-            timeout=300,
-        )
-    except asyncio.TimeoutError:
-        return await bot.send_message(user_id, "ᴘᴇᴍʙᴀᴛᴀʟᴀɴ ᴏᴛᴏᴍᴀᴛɪs")
-    if await is_cancel(callback_query, hash.text):
-        return
-    api_hash = hash.text
+    await callback_query.message.delete()
     try:
         phone = await bot.ask(
             user_id,
@@ -104,8 +74,8 @@ async def bikin_gratis(client, callback_query):
     phone_number = phone.text
     new_client = Ubot(
         name=str(callback_query.id),
-        api_id=api_id,
-        api_hash=api_hash,
+        api_id=API_ID,
+        api_hash=API_HASH,
         in_memory=False,
     )
     get_otp = await bot.send_message(user_id, "<b>ᴍᴇɴɢɪʀɪᴍ ᴋᴏᴅᴇ ᴏᴛᴘ...</b>")
@@ -200,41 +170,34 @@ async def bikin_gratis(client, callback_query):
             "<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>"
         )
     now = datetime.now(timezone("Asia/Jakarta"))
-    expire_date = now + timedelta(days=3)
+    expire_date = now + timedelta(days=2)
     await set_expired_date(new_client.me.id, expire_date)
     await add_ubot(
         user_id=int(new_client.me.id),
-        api_id=api_id,
-        api_hash=api_hash,
+        api_id=API_ID,
+        api_hash=API_HASH,
         session_string=session_string,
     )
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-    text_done = f"<b>🔥 {bot.me.mention} ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋᴛɪꜰᴋᴀɴ ᴅɪ ᴀᴋᴜɴ: <a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
-    await bot_msg.edit(text_done)
+    SH = await ubot.get_prefix(new_client.me.id)
+    buttons = [
+            [InlineKeyboardButton("⬅️ ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")],
+        ]
+    text_done = f"""
+<b>🤖 ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
+<b>👤 ɴᴀᴍᴇ :</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a>
+<b>📋 ɪᴅ :</b> <code>{new_client.me.id}</code>
+<b>🔧 ᴘʀᴇғɪxᴇs :</b> <code>{' '.join(SH)}</code>
+<b>📅 ᴇxᴘɪʀᴇᴅ :</b>
+        """
+    await bot_msg.edit(text_done, disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons))
+    await install_my_peer(new_client)
     try:
-        await new_client.join_chat("PremUbotCH")
+        await new_client.join_chat("ConsterlySup")
     except UserAlreadyParticipant:
         pass
-    return await bot.send_message(
-        LOGS_MAKER_UBOT,
-        f"""
-<b>ᴜsᴇʀʙᴏᴛ ᴅɪᴀᴋᴛɪғᴋᴀɴ</b>
-<b>ᴀᴋᴜɴ:</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> 
-<b>ɪᴅ:</b> <code>{new_client.me.id}</code>
-""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
-                        callback_data=f"cek_masa_aktif {new_client.me.id}",
-                    )
-                ],
-            ]
-        ),
-        disable_web_page_preview=True,
-    )
 
 
 async def is_cancel(callback_query, text):
