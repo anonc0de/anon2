@@ -1,6 +1,6 @@
 from PyroUbot.core.database import mongodb
 
-varsdb = mongodb.vars
+varsdb = mongodb.varsX
 
 
 async def set_vars(user_id, vars_name, value, query="vars"):
