@@ -9,7 +9,7 @@ __HELP__ = """
 """
 
 
-@PY.LOGS()
+# @PY.LOGS()
 async def _(client, message):
     await forward_logs(client, message)
 
