@@ -105,7 +105,7 @@ async def pm_on_off(client, message):
     value = toggle_options[toggle_option]
     text = "ᴅɪᴀᴋᴛɪғᴋᴀɴ" if value else "ᴅɪɴᴏɴᴀᴋᴛɪғᴋᴀɴ"
 
-    await set_vars(client.me.id, "PMPERMIT", value)
+    await add_to_vars(client.me.id, "PMPERMIT", value)
     await message.reply(f"<b>✅ ᴘᴍᴘᴇʀᴍɪᴛ ʙᴇʀʜᴀsɪʟ {text}</b>")
 
 
