@@ -4,8 +4,8 @@ RUN apt-get update -y
 
 WORKDIR /app
 
-RUN pip3 install -U -r req*
-
 COPY . .
+
+RUN pip3 install -U -r req*
 
 CMD ["python", "-m", "PyroUbot"]
