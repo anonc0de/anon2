@@ -4,7 +4,7 @@ varsdb = mongodb.varsX
 
 
 async def set_vars(user_id, vars_name, value, query="vars"):
-    update_data = {"$set": {f"={query}.{vars_name}": value}}
+    update_data = {"$set": {f"{query}.{vars_name}": value}}
     await varsdb.update_one({"_id": user_id}, update_data, upsert=True)
 
 
