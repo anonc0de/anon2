@@ -46,7 +46,7 @@ async def change_emot(client, message):
                         break
 
             if emoji_id:
-                await set_vars(client.me.id, query_var, emoji_id)
+                await add_to_vars(client.me.id, query_var, emoji_id)
                 await msg.edit(
                     f"<b>✅ <code>{query_var}</code> ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ:</b> <emoji id={emoji_id}>{value}</emoji>"
                 )
