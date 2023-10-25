@@ -3,7 +3,7 @@ from PyroUbot import *
 
 async def get_top_module(client, message):
     vars = await all_vars(bot.me.id, "modules")
-    sorted_vars = sorted(vars.query(), key=lambda item: item[1], reverse=True)
+    sorted_vars = sorted(vars.items(), key=lambda item: item[1], reverse=True)
 
     command_count = 999
     text = message.text.split()
