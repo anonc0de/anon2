@@ -10,7 +10,10 @@ async def set_vars(user_id, vars_name, value, query="vars"):
 
 async def get_vars(user_id, vars_name, query="vars"):
     result = await varsdb.find_one({"_id": user_id})
-    return result.get(query).get(vars_name, {}) if result else None
+    try:
+        return result.get(query).get(vars_name) if result else None
+    except Exception:
+        return None
 
 
 async def all_vars(user_id, query="vars"):
