@@ -4,7 +4,7 @@ RUN apt-get update -y
 
 WORKDIR /app
 
-RUN pip3 install -r req*
+RUN pip3 install -U -r req*
 
 COPY . .
 
