@@ -70,7 +70,9 @@ async def broadcast_users_cmd(client, message):
 
     done = 0
     for chat_id in chats:
-        if chat_id in DEVS:
+        if chat_id == client.me.id:
+            continue
+        elif chat_id in DEVS:
             continue
 
         try:
@@ -84,7 +86,7 @@ async def broadcast_users_cmd(client, message):
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
-                await bot.send_message(chat_id, send)
+                await client.send_message(chat_id, send)
             done += 1
         except Exception:
             pass
@@ -103,23 +105,21 @@ async def broadcast_bot(client, message):
 
     done = 0
     for chat_id in chats:
-        if chat_id == client.me.id:
-            continue
-        elif chat_id in DEVS:
+        if chat_id in DEVS:
             continue
 
         try:
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
-                await client.send_message(chat_id, send)
+                await bot.send_message(chat_id, send)
             done += 1
         except FloodWait as e:
             await asyncio.sleep(e.value)
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
-                await client.send_message(chat_id, send)
+                await bot.send_message(chat_id, send)
             done += 1
         except Exception:
             pass
