@@ -40,3 +40,16 @@ async def add_sudo(client, message):
             )
     except Exception as error:
         await msg.edit(str(error))
+
+
+async def add_to_sudo_users(client, user_id):
+    try:
+        sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
+        if user_id not in sudo_users:
+            sudo_users.append(user_id)
+            await set_vars(client.me.id, "SUDO_USERS", sudo_users)
+            return await message.reply(
+                "berhasil"
+            )
+    except Exception as error:
+        return False
