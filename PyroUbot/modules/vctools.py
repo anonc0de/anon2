@@ -14,12 +14,14 @@ __HELP__ = f"""
 
 
 @PY.UBOT("startvc")
+@PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await start_vctools(client, message)
 
 
 @PY.UBOT("stopvc")
+@PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await stop_vctools(client, message)
