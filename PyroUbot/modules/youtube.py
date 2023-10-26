@@ -18,7 +18,7 @@ async def _(client, message):
     await vsong_cmd(client, message)
 
 
-@PY.UBOT("song"), SUDO=True
+@PY.UBOT("song", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await song_cmd(client, message)
