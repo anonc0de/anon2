@@ -1,13 +1,13 @@
 from PyroUbot import *
 
 
-@PY.UBOT("sh", SUDO=False)
+@PY.UBOT("sh")
 @PY.OWNER
 async def _(client, message):
     await shell_cmd(client, message)
 
 
-@PY.UBOT("eval", SUDO=False)
+@PY.UBOT("eval")
 @PY.OWNER
 async def _(client, message):
     await evalator_cmd(client, message)
