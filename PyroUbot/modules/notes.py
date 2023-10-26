@@ -4,16 +4,16 @@ __MODULE__ = "notes"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɴᴏᴛᴇs 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}addnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ - ʀᴇᴘʟʏ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>addnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ - ʀᴇᴘʟʏ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ sᴇʙᴜᴀʜ ᴄᴀᴛᴀᴛᴀɴ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}get</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>get</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ᴄᴀᴛᴀᴛᴀɴ ʏᴀɴɢ ᴅɪsɪᴍᴘᴀɴ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}delnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>delnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ᴄᴀᴛᴀᴛᴀɴ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}notes</code>
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>notes</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴅᴀꜰᴛᴀʀ ᴄᴀᴛᴀᴛᴀɴ ʏᴀɴɢ ᴅɪsɪᴍᴘᴀɴ
 
   <b>ɴᴏᴛᴇ: ᴜɴᴛᴜᴋ ᴍᴇɴɢɢᴜɴᴀᴋᴀɴ ʙᴜᴛᴛᴏɴ, ɢᴜɴᴀᴋᴀɴ ꜰᴏʀᴍᴀᴛ:</b>
@@ -21,13 +21,13 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("addnote")
+@PY.UBOT("addnote", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await addnote_cmd(client, message)
 
 
-@PY.UBOT("get")
+@PY.UBOT("get", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await get_cmd(client, message)
@@ -39,13 +39,13 @@ async def _(client, inline_query):
     await get_notes_button(client, inline_query)
 
 
-@PY.UBOT("delnote")
+@PY.UBOT("delnote", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await delnote_cmd(client, message)
 
 
-@PY.UBOT("notes")
+@PY.UBOT("notes", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await notes_cmd(client, message)
