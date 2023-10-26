@@ -21,7 +21,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("kick|ban|mute|unmute|unban", SUDO=true)
+@PY.UBOT("kick|ban|mute|unmute|unban", SUDO=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
