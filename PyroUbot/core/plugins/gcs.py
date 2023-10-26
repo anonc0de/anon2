@@ -72,7 +72,7 @@ async def broadcast_users_cmd(client, message):
     for chat_id in chats:
         if chat_id == client.me.id:
             continue
-        elif chat_id in OWNER_ID:
+        elif chat_id in DEVS:
             continue
 
         try:
