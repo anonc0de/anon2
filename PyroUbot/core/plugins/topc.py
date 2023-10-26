@@ -25,7 +25,6 @@ async def get_top_module(client, message):
     await message.reply(txt)
 
 
-"""
 async def add_sudo(client, message):
     try:
         msg = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
@@ -41,18 +40,5 @@ async def add_sudo(client, message):
             )
     except Exception as error:
         await msg.edit(str(error))
-"""
         
 
-
-async def add_sudo(client, message, user_id):
-    try:
-        sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
-        if user_id not in sudo_users:
-            sudo_users.append(user_id)
-            await set_vars(client.me.id, "SUDO_USERS", sudo_users)
-            return await message.reply(
-                "berhasil"
-            )
-    except Exception as error:
-        return False
