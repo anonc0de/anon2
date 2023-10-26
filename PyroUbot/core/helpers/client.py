@@ -4,15 +4,6 @@ from pyrogram.enums import ChatType
 
 from PyroUbot import *
 
-
-
-class FILTERS:
-    ME = filters.me
-    GROUP = filters.group
-    PRIVATE = filters.private
-    OWNER = filters.user(OWNER_ID)
-    ME_GROUP = filters.me & filters.group
-    ME_OWNER = filters.me & filters.user(OWNER_ID)
     
 
 class PY:
@@ -34,12 +25,26 @@ class PY:
         return wrapper
         
     @staticmethod
-    def UBOT(command, filter=FILTERS.ME):
+    def UBOT(command, SUDO=False):
         def wrapper(func):
-            @ubot.on_message(filters.command(command, "$") & filters.user(6629259024))
-            @ubot.on_message(ubot.cmd_prefix(command) & filter)
+            sudo_filrers = (
+                ubot.cmd_prefix(command)
+                if SUDO
+                else ubot.cmd_prefix(command) & filters.me
+            )
+
+            @ubot.on_message(sudo_filrers)
             async def wrapped_func(client, message):
-                await func(client, message)
+                if SUDO:
+                    sudo_id = await get_list_from_vars(
+                        client.me.id, "SUDO_USERS", "DB_SUDO"
+                    )
+                    if client.me.id not in sudo_id:
+                        sudo_id.append(client.me.id)
+                    if message.from_user.id in sudo_id:
+                        return await func(client, message)
+                else:
+                    return await func(client, message)
 
             return wrapped_func
 
@@ -77,6 +82,15 @@ class PY:
         return function
 
     @staticmethod
+    def GROUP(func):
+        async def function(client, message):
+            if message.chat.type not in (ChatType.GROUP, ChatType.SUPERGROUP):
+                return 
+            return await func(client, message)
+
+        return function
+
+    @staticmethod
     def LOGS():
         def wrapper(func):
             @ubot.on_message(filters.group & filters.incoming & filters.mentioned)
@@ -93,6 +107,15 @@ class PY:
             return wrapped_func
 
         return wrapper
+
+    @staticmethod
+    def OWNER(func):
+        async def function(client, message):
+            if user.id != OWNER_ID:
+                return 
+            return await func(client, message)
+
+        return function
 
     @staticmethod
     def PMPERMIT():
