@@ -98,9 +98,7 @@ async def broadcast_bot(client, message):
     susr = 0
     served_users = []
     susers = await get_list_from_vars(client.me.id, "SAVED_USERS")
-    for user in susers:
-        served_users.append(int(user["user_id"]))
-    for i in served_users:
+    for i in susers:
         try:
             m = (
                 await bot.forward_messages(i, y, x)
