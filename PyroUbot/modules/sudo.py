@@ -21,7 +21,7 @@ async def _(client, message):
     except Exception as error:
         return await message.reply(error)
 
-    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS")
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
 
     if user.id in sudo_users:
         return await message.reply(
@@ -29,7 +29,7 @@ async def _(client, message):
         )
 
     try:
-        await add_to_vars(client.me.id, "SUDO_USERS", user.id)
+        await add_to_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
         return await message.reply(
             f"<b>✅ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
         )
@@ -51,7 +51,7 @@ async def _(client, message):
     except Exception as error:
         return await message.reply(error)
 
-    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS")
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
 
     if user.id not in sudo_users:
         return await message.reply(
@@ -59,7 +59,7 @@ async def _(client, message):
         )
 
     try:
-        await remove_from_vars(client.me.id, "SUDO_USERS", user.id)
+        await remove_from_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
         return await message.reply(
             f"<b>❌ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
         )
@@ -70,7 +70,7 @@ async def _(client, message):
 @PY.UBOT("getsudo")
 @PY.TOP_CMD
 async def _(client, message):
-    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS")
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
 
     if not sudo_users:
         return await message.reply("<s>Daftar sudo kosong</s>")
