@@ -8,8 +8,7 @@ from PyroUbot import *
 
 
 @PY.UBOT("addsudo")
-@PY.TOP_CMD
-async def _(client, message):
+@PY.TOP_CMDasync def _(client, message):
     user_id = await extract_user(message)
     if not user_id:
         return await message.reply(
