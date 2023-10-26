@@ -13,7 +13,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("wall|waifu", SUDO=true)
+@PY.UBOT("wall|waifu", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await anime_cmd(client, message)
