@@ -51,12 +51,6 @@ async def _(client, callback_query):
     await bikin_ubot(client, callback_query)
 
 
-@PY.UBOT("getubot")
-@PY.OWNER
-async def _(client, message):
-    await cek_ubot(client, message)
-
-
 @PY.CALLBACK("^(get_otp|get_phone|get_faktor|ub_deak|deak_akun)")
 async def _(client, callback_query):
     await tools_userbot(client, callback_query)
