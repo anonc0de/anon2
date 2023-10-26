@@ -15,21 +15,21 @@ __HELP__ = f"""
   """
 
 
-@PY.UBOT("invite")
+@PY.UBOT("invite", SUDO=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await invite_cmd(client, message)
 
 
-@PY.UBOT("inviteall")
+@PY.UBOT("inviteall", SUDO=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await inviteall_cmd(client, message)
 
 
-@PY.UBOT("cancel")
+@PY.UBOT("cancel", SUDO=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
