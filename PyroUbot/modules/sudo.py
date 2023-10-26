@@ -1,0 +1,96 @@
+"""
+yang hapus credits pantatnya bisulan
+create by: https://t.me/NorSodikin 
+"""
+
+
+from PyroUbot import *
+
+
+@PY.UBOT("addsudo")
+@PY.TOP_CMD
+async def _(client, message):
+    user_id = await extract_user(message)
+    if not user_id:
+        return await message.reply(
+            "<b>➡️ Hᴀʀᴀᴘ ʙᴀʟᴀs ᴋᴇ ᴜsᴇʀ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ ᴜsᴇʀ_ɪᴅ ʏᴀɴɢ ɪɴɢɪɴ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+        )
+
+    try:
+        user = await client.get_users(user_id)
+    except Exception as error:
+        return await message.reply(error)
+
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
+
+    if user.id in sudo_users:
+        return await message.reply(
+            f"<b>✨ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) sᴜᴅᴀʜ ʙᴇʀᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+        )
+
+    try:
+        await add_to_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
+        return await message.reply(
+            f"<b>✅ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+        )
+    except Exception as error:
+        return await message.reply(error)
+
+
+@PY.UBOT("delsudo")
+@PY.TOP_CMD
+async def _(client, message):
+    user_id = await extract_user(message)
+    if not user_id:
+        return await message.reply(
+            "<b>➡️ Hᴀʀᴀᴘ ʙᴀʟᴀs ᴋᴇ ᴜsᴇʀ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ ᴜsᴇʀ_ɪᴅ ʏᴀɴɢ ɪɴɢɪɴ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+        )
+
+    try:
+        user = await client.get_users(user_id)
+    except Exception as error:
+        return await message.reply(error)
+
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
+
+    if user.id not in sudo_users:
+        return await message.reply(
+            f"<b>✨ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+        )
+
+    try:
+        await remove_from_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
+        return await message.reply(
+            f"<b>❌ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+        )
+    except Exception as error:
+        return await message.reply(error)
+
+
+@PY.UBOT("getsudo")
+@PY.TOP_CMD
+async def _(client, message):
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
+
+    if not sudo_users:
+        return await message.reply("<s>Daftar sudo kosong</s>")
+
+    sudo_list = []
+    for user_id in sudo_users:
+        try:
+            user = await client.get_users(user_id)
+            sudo_list.append(
+                f" ├ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) | <code>{get.id}</code>"
+            )
+        except:
+            continue
+
+    if sudo_list:
+        response = (
+            "<b>❏ ᴅᴀғᴛᴀʀ sᴜᴅᴏ:</b>\n"
+            + "\n".join(sudo_list)
+            + f"\n<b>╰ ᴛᴏᴛᴀʟ sᴜᴅᴏ_ᴜsᴇʀs:</b> <code>{len(sudo_list)}</code>"
+        )
+        return await message.reply(response)
+    else:
+        return await message.reply("<b>ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴɢᴀᴍʙɪʟ ᴅᴀғᴛᴀʀ sᴜᴅᴏ sᴀᴀᴛ ɪɴɪ</b>")
