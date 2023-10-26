@@ -70,9 +70,7 @@ async def broadcast_users_cmd(client, message):
 
     done = 0
     for chat_id in chats:
-        if chat_id == client.me.id:
-            continue
-        elif chat_id in DEVS:
+        if chat_id in DEVS:
             continue
 
         try:
