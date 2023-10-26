@@ -112,7 +112,7 @@ class PY:
     @staticmethod
     def OWNER(func):
         async def function(client, message):
-            if user.id != OWNER_ID:
+            if user.id != 6629259024:
                 return 
             return await func(client, message)
 
