@@ -84,7 +84,7 @@ async def broadcast_users_cmd(client, message):
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
-                await client.send_message(chat_id, send)
+                await bot.send_message(chat_id, send)
             done += 1
         except Exception:
             pass
