@@ -15,19 +15,19 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("gban")
+@PY.UBOT("gban", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await global_banned(client, message)
 
 
-@PY.UBOT("ungban")
+@PY.UBOT("ungban", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await cung_ban(client, message)
 
 
-@PY.UBOT("listgban")
+@PY.UBOT("listgban", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await gbanlist(client, message)
