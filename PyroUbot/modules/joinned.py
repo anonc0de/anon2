@@ -21,7 +21,8 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("kickme", FILTERS.ME_GROUP)
+@PY.UBOT("kickme")
+@PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await leave(client, message)
