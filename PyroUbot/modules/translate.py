@@ -4,30 +4,30 @@ __MODULE__ = "translate"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴛʀᴀɴsʟᴀᴛᴇ 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}tr</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>tr</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴇʀᴊᴇᴍᴀʜᴋᴀɴ ᴛᴇxᴛ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}tts</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>tts</code> [ʀᴇᴘʟʏ/ᴛᴇxᴛ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ᴛᴇᴄᴛ ᴍᴇɴᴊᴀᴅɪ ᴍᴇɴᴊᴀᴅɪ ᴘᴇsᴀɴ sᴜᴀʀᴀ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{PREFIX[0]}setlang</code>
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>setlang</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇʀᴜʙᴀʜ ʙᴀʜᴀsᴀ ᴛʀᴀɴsʟᴀᴛᴇ
 """
 
 
-@PY.UBOT("tts")
+@PY.UBOT("tts", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await tts_cmd(client, message)
 
 
-@PY.UBOT("tr")
+@PY.UBOT("tr", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await tr_cmd(client, message)
 
 
-@PY.UBOT("setlang")
+@PY.UBOT("setlang", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await set_lang_cmd(client, message)
