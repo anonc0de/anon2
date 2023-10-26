@@ -9,7 +9,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("font")
+@PY.UBOT("font", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await font_message(client, message)
