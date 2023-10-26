@@ -26,7 +26,7 @@ class PY:
         return wrapper
         
     @staticmethod
-    def UBOT(command, SUDO=True):
+    def UBOT(command, SUDO=False):
         def wrapper(func):
             sudo_filrers = (
                 ubot.cmd_prefix(command)
