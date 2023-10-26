@@ -1,7 +1,7 @@
 from PyroUbot import *
 
 
-@PY.UBOT("alive", SUDO=true)
+@PY.UBOT("alive", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await alive_cmd(client, message)
