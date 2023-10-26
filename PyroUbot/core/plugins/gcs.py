@@ -95,18 +95,38 @@ async def broadcast_users_cmd(client, message):
 
 
 async def broadcast_bot(client, message):
-    msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ", quote=True)
+
+    send = get_message(message)
+    if not send:
+        return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
+
+    chats = await get_list_from_vars(client.me.id, "SAVED_USERS")
+
     done = 0
-    if not message.reply_to_message:
-        return await msg.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴘᴇsᴀɴ</b>")
-    for x in await get_list_from_vars(client.me.id, "SAVED_USERS"):
+    for chat_id in chats:
+        if chat_id == client.me.id:
+            continue
+        elif chat_id in DEVS:
+            continue
+
         try:
-            await x.unblock_user(bot.me.username)
-            await message.reply_to_message.forward(x.me.id)
+            if message.reply_to_message:
+                await send.copy(chat_id)
+            else:
+                await client.send_message(chat_id, send)
+            done += 1
+        except FloodWait as e:
+            await asyncio.sleep(e.value)
+            if message.reply_to_message:
+                await send.copy(chat_id)
+            else:
+                await client.send_message(chat_id, send)
             done += 1
         except Exception:
             pass
-    return await msg.edit(f"✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} ᴜʙᴏᴛ")
+
+    return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀs</b>")
 
 
 async def send_msg_cmd(client, message):
