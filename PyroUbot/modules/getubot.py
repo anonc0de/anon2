@@ -1,7 +1,8 @@
 from PyroUbot import *
 
 
-@PY.UBOT("getubot", FILTERS.ME_OWNER)
+@PY.UBOT("getubot")
+@PY.OWNER
 async def _(client, message):
     await getubot_cmd(client, message)
 
