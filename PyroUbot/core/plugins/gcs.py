@@ -100,25 +100,25 @@ async def broadcast_bot(client, message):
     susers = await get_list_from_vars(client.me.id, "SAVED_USERS")
     for user in susers:
         served_users.append(int(user["user_id"]))
-     for i in served_users:
-         try:
-              m = (
+    for i in served_users:
+        try:
+            m = (
                 await bot.forward_messages(i, y, x)
                 if message.reply_to_message
-                 else await bot.send_message(i, text=query)
-             )
-             susr += 1
-          except FloodWait as e:
+                else await bot.send_message(i, text=query)
+            )
+            susr += 1
+        except FloodWait as e:
             flood_time = int(e.x)
             if flood_time > 200:
                  continue
             await asyncio.sleep(flood_time)
-         except Exception:
+        except Exception:
             pass
-      try:
+    try:
         await message.reply(f"done {susr}")
-     except:
-           pass
+    except:
+        pass
 
 async def send_msg_cmd(client, message):
     if message.reply_to_message:
