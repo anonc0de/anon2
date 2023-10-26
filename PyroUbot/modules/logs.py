@@ -14,7 +14,7 @@ async def _(client, message):
     await forward_logs(client, message)
 
 
-@PY.UBOT("logs")
+@PY.UBOT("logs", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     if len(message.command) < 2:
