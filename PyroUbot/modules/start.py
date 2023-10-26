@@ -7,12 +7,6 @@ async def _(client, message):
     await ping_cmd(client, message)
 
 
-@PY.UBOT("adds")
-@PY.OWNER
-async def _(client, message):
-    await add_sudo(client, message)
-
-
 @PY.BOT("start")
 @PY.START
 @PY.PRIVATE
