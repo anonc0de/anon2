@@ -95,37 +95,30 @@ async def broadcast_users_cmd(client, message):
 
 
 async def broadcast_bot(client, message):
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ", quote=True)
-
-    send = get_message(message)
-    if not send:
-        return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
-
-    chats = await get_list_from_vars(client.me.id, "SAVED_USERS")
-
-    done = 0
-    for chat_id in chats:
-        if chat_id in DEVS:
-            continue
-
-        try:
-            if message.reply_to_message:
-                await send.copy(chat_id)
-            else:
-                await bot.send_message(chat_id, send)
-            done += 1
-        except FloodWait as e:
-            await asyncio.sleep(e.value)
-            if message.reply_to_message:
-                await send.copy(chat_id)
-            else:
-                await bot.send_message(chat_id, send)
-            done += 1
-        except Exception:
+    susr = 0
+    served_users = []
+    susers = await get_list_from_vars(client.me.id, "SAVED_USERS")
+    for user in susers:
+        served_users.append(int(user["user_id"]))
+     for i in served_users:
+         try:
+              m = (
+                await bot.forward_messages(i, y, x)
+                if message.reply_to_message
+                 else await bot.send_message(i, text=query)
+             )
+             susr += 1
+          except FloodWait as e:
+            flood_time = int(e.x)
+            if flood_time > 200:
+                 continue
+            await asyncio.sleep(flood_time)
+         except Exception:
             pass
-
-    return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {done} ᴜsᴇʀs</b>")
-
+      try:
+        await message.reply(f"done {susr}")
+     except:
+           pass
 
 async def send_msg_cmd(client, message):
     if message.reply_to_message:
