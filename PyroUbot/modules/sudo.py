@@ -21,7 +21,7 @@ async def _(client, message):
     except Exception as error:
         return await message.reply(error)
 
-    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
+    sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
 
     if user.id in sudo_users:
         return await message.reply(
