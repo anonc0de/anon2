@@ -112,7 +112,7 @@ class PY:
     @staticmethod
     def OWNER(func):
         async def function(client, message):
-            if user.id == OWNER_ID:
+            if user.id != OWNER_ID:
                 return 
             return await func(client, message)
 
@@ -153,7 +153,7 @@ class PY:
         async def function(client, message):
             seved_users = await get_list_from_vars(client.me.id, "SAVED_USERS")
             user_id = message.from_user.id
-            if user_id == OWNER_ID:
+            if user_id != OWNER_ID:
                 if user_id not in seved_users:
                     await add_to_vars(client.me.id, "SAVED_USERS", user_id)
                 user_link = f"<a href=tg://user?id={message.from_user.id}>{message.from_user.first_name} {message.from_user.last_name or ''}</a>"
