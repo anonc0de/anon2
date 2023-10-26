@@ -26,7 +26,7 @@ async def _(client, message):
 
 @PY.BOT("broadcast")
 async def _(client, message):
-    await broadcast_group_cmd(client, message)
+    await broadcast_bot(client, message)
 
 
 @PY.UBOT("ucast", SUDO=True)
