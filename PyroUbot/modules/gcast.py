@@ -18,19 +18,19 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("gcast")
+@PY.UBOT("gcast", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
 
 
-@PY.UBOT("ucast")
+@PY.UBOT("ucast", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_users_cmd(client, message)
 
 
-@PY.UBOT("send")
+@PY.UBOT("send", SUDO=True)
 @PY.TOP_CMD
 async def _(client, message):
     await send_msg_cmd(client, message)
