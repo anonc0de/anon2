@@ -26,17 +26,17 @@ class PY:
         return wrapper
         
     @staticmethod
-    def UBOT(command, SUDO=False):
+    def UBOT(command, sudo=False):
         def wrapper(func):
             sudo_filrers = (
                 ubot.cmd_prefix(command)
-                if SUDO
+                if sudo
                 else ubot.cmd_prefix(command) & filters.me
             )
 
             @ubot.on_message(sudo_filrers)
             async def wrapped_func(client, message):
-                if SUDO:
+                if sudo:
                     sudo_id = await get_list_from_vars(
                         client.me.id, "SUDO_USERS, DB_SUDO"
                     )
