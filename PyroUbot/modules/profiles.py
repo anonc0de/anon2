@@ -18,25 +18,25 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("setbio", SUDO=True)
+@PY.UBOT("setbio", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await set_bio(client, message)
 
 
-@PY.UBOT("setname", SUDO=True)
+@PY.UBOT("setname", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await setname(client, message)
 
 
-@PY.UBOT("block", SUDO=True)
+@PY.UBOT("block", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await block_user_func(client, message)
 
 
-@PY.UBOT("unblock", SUDO=True)
+@PY.UBOT("unblock", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await unblock_user_func(client, message)
