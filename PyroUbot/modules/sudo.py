@@ -25,13 +25,13 @@ async def _(client, message):
 
     if user.id in sudo_users:
         return await message.reply(
-            f"<b>✨ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) sᴜᴅᴀʜ ʙᴇʀᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+            f"<b>✨ [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) sᴜᴅᴀʜ ʙᴇʀᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
         )
 
     try:
         await add_to_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
         return await message.reply(
-            f"<b>✅ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+            f"<b>✅ [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪᴛᴀᴍʙᴀʜᴋᴀɴ ᴋᴇ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
         )
     except Exception as error:
         return await message.reply(error)
@@ -55,13 +55,13 @@ async def _(client, message):
 
     if user.id not in sudo_users:
         return await message.reply(
-            f"<b>✨ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+            f"<b>✨ [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
         )
 
     try:
         await remove_from_vars(client.me.id, "SUDO_USERS", user.id, "DB_SUDO")
         return await message.reply(
-            f"<b>❌ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
+            f"<b>❌ [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) ʙᴇʀʜᴀsɪʟ ᴅɪʜᴀᴘᴜs ᴅᴀʀɪ ᴅᴀғᴛᴀʀ sᴜᴅᴏ</b>"
         )
     except Exception as error:
         return await message.reply(error)
@@ -73,17 +73,17 @@ async def _(client, message):
     sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
 
     if not sudo_users:
-        return await message.reply("<s>Daftar sudo kosong</s>")
+        return await message.reply("<s>ᴅᴀғᴛᴀʀ sᴜᴅᴏ ᴋᴏsᴏɴɢ</s>")
 
     sudo_list = []
     for user_id in sudo_users:
         try:
-            user = await client.get_users(user_id)
+            user = await client.get_users(int(user_id))
             sudo_list.append(
-                f" ├ {user.first_name} {user.last_name or ''} (tg://user?id={user.id}) | <code>{get.id}</code>"
+                f" ├ [{user.first_name} {user.last_name or ''}](tg://user?id={user.id}) | <code>{user.id}</code>"
             )
         except:
-            continue
+            pass
 
     if sudo_list:
         response = (
