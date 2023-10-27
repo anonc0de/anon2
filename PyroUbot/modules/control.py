@@ -17,12 +17,12 @@ __HELP__ = f"""
 
 
 
-@PY.UBOT("setprefix", SUDO=True)
+@PY.UBOT("setprefix", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await setprefix(client, message)
 
-@PY.UBOT("setemoji", SUDO=True)
+@PY.UBOT("setemoji", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await change_emot(client, message)
