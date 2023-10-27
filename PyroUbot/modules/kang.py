@@ -13,7 +13,7 @@ __HELP__ = f"""
 
 
 
-@PY.UBOT("kang", SUDO=True)
+@PY.UBOT("kang", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await kang(client, message)
