@@ -1,6 +1,6 @@
 from PyroUbot.core.database import mongodb
 
-varsdb = mongodb.vars
+varsdb = mongodb.varsX
 
 
 async def set_vars(user_id, vars_name, value, query="vars"):
@@ -15,7 +15,7 @@ async def get_vars(user_id, vars_name, query="vars"):
 
 async def all_vars(user_id, query="vars"):
     result = await varsdb.find_one({"_id": user_id})
-    return result.get(query, {})
+    return result.get(query) if result else None
 
 
 async def remove_all_vars(user_id):
@@ -29,7 +29,10 @@ async def get_list_from_vars(user_id, vars_name, query="vars"):
 
 async def add_to_vars(user_id, vars_name, value, query="vars"):
     vars_list = await get_list_from_vars(user_id, vars_name, query)
-    vars_list.append(value)
+    if vars_list:
+        vars_list.append(value)
+    else:
+        vars_list = [value]
     await set_vars(user_id, vars_name, " ".join(map(str, vars_list)))
 
 
