@@ -58,7 +58,7 @@ class Button:
                     "ʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ ⚒️", callback_data="memek"
                 ),
             ],
-            [InlineKeyboardButton("🤩 ᴜsᴇʀʙᴏᴛ ɢʀᴀᴛɪs 🤩", callback_data="grts")],
+            # [InlineKeyboardButton("🤩 ᴜsᴇʀʙᴏᴛ ɢʀᴀᴛɪs 🤩", callback_data="grts")],
             [
                 InlineKeyboardButton(
                     "📢 ɢʀᴏᴜᴘ sᴜᴘᴘᴏʀᴛ", url="https://t.me/ConsterlySup"
