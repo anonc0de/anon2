@@ -10,7 +10,7 @@ __HELP__ = f"""
   """
 
 
-@PY.UBOT("catur", SUDO=True)
+@PY.UBOT("catur", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await catur_cmd(client, message)
