@@ -9,7 +9,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("q", SUDO=True)
+@PY.UBOT("q", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await quotly_cmd(client, message)
