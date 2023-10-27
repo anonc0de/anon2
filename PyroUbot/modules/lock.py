@@ -18,14 +18,14 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("lock|unlock", SUDO=True)
+@PY.UBOT("lock|unlock", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await locks_func(client, message)
 
 
-@PY.UBOT("locks", SUDO=True)
+@PY.UBOT("locks", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
