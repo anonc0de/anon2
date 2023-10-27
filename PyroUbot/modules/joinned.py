@@ -21,26 +21,26 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("kickme", SUDO=True)
+@PY.UBOT("kickme", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await leave(client, message)
 
 
-@PY.UBOT("join", SUDO=True)
+@PY.UBOT("join", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await join(client, message)
 
 
-@PY.UBOT("leaveallgc", SUDO=True)
+@PY.UBOT("leaveallgc", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await kickmeall(client, message)
 
 
-@PY.UBOT("leaveallch", SUDO=True)
+@PY.UBOT("leaveallch", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await kickmeallch(client, message)
