@@ -21,13 +21,13 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("addnote", SUDO=True)
+@PY.UBOT("addnote", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await addnote_cmd(client, message)
 
 
-@PY.UBOT("get", SUDO=True)
+@PY.UBOT("get", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await get_cmd(client, message)
@@ -39,13 +39,13 @@ async def _(client, inline_query):
     await get_notes_button(client, inline_query)
 
 
-@PY.UBOT("delnote", SUDO=True)
+@PY.UBOT("delnote", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await delnote_cmd(client, message)
 
 
-@PY.UBOT("notes", SUDO=True)
+@PY.UBOT("notes", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await notes_cmd(client, message)
