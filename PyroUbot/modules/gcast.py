@@ -18,7 +18,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("gcast", SUDO=True)
+@PY.UBOT("gcast", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
@@ -29,13 +29,13 @@ async def _(client, message):
     await broadcast_bot(client, message)
 
 
-@PY.UBOT("ucast", SUDO=True)
+@PY.UBOT("ucast", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_users_cmd(client, message)
 
 
-@PY.UBOT("send", SUDO=True)
+@PY.UBOT("send", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await send_msg_cmd(client, message)
