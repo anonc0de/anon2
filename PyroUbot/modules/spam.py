@@ -12,7 +12,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("spam|dspam", SUDO=True)
+@PY.UBOT("spam|dspam", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     if message.command[0] == "spam":
