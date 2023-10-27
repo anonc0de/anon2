@@ -18,27 +18,27 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("addbl", SUDO=True)
+@PY.UBOT("addbl", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await add_blaclist(client, message)
 
 
-@PY.UBOT("unbl", SUDO=True)
+@PY.UBOT("unbl", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await del_blacklist(client, message)
 
 
-@PY.UBOT("rallbl", SUDO=True)
+@PY.UBOT("rallbl", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await rem_all_blacklist(client, message)
 
 
-@PY.UBOT("listbl", SUDO=True)
+@PY.UBOT("listbl", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await get_blacklist(client, message)
