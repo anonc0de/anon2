@@ -9,7 +9,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("sosmed", SUDO=True)
+@PY.UBOT("sosmed", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await sosmed_cmd(client, message)
