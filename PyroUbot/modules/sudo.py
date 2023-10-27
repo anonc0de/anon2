@@ -72,11 +72,11 @@ async def _(client, message):
 @PY.UBOT("getsudo")
 @PY.TOP_CMD
 async def _(client, message):
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs...")
+    msg = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...")
     sudo_users = await get_list_from_vars(client.me.id, "SUDO_USERS", "DB_SUDO")
 
     if not sudo_users:
-        return await message.reply("ᴅᴀғᴛᴀʀ sᴜᴅᴏ ᴋᴏsᴏɴɢ")
+        return await msg.edit("ᴅᴀғᴛᴀʀ sᴜᴅᴏ ᴋᴏsᴏɴɢ")
 
     sudo_list = []
     for user_id in sudo_users:
