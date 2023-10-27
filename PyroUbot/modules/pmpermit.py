@@ -32,13 +32,13 @@ async def _(client, message):
     await pm_anu(client, message)
 
 
-@PY.UBOT("setpm", SUDO=True)
+@PY.UBOT("setpm", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await pm_set(client, message)
 
 
-@PY.UBOT("pmpermit", SUDO=True)
+@PY.UBOT("pmpermit", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await pm_on_off(client, message)
@@ -49,14 +49,14 @@ async def _(client, message):
     await pm_sh(client, message)
 
 
-@PY.UBOT("ok|setuju", SUDO=True)
+@PY.UBOT("ok|setuju")
 @PY.TOP_CMD
 @PY.PRIVATE
 async def _(client, message):
     await pm_ok(client, message)
 
 
-@PY.UBOT("no|tolak", SUDO=True)
+@PY.UBOT("no|tolak")
 @PY.TOP_CMD
 @PY.PRIVATE
 async def _(client, message):
