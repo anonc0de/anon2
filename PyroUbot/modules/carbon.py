@@ -9,7 +9,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("carbon", SUDO=True)
+@PY.UBOT("carbon", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await carbon_func(client, message)
