@@ -13,14 +13,14 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("startvc", SUDO=True)
+@PY.UBOT("startvc", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
     await start_vctools(client, message)
 
 
-@PY.UBOT("stopvc", SUDO=True)
+@PY.UBOT("stopvc", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
 async def _(client, message):
