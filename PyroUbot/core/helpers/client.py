@@ -38,7 +38,7 @@ class PY:
             async def wrapped_func(client, message):
                 if sudo:
                     sudo_id = await get_list_from_vars(
-                        client.me.id, "SUDO_USERS, DB_SUDO"
+                        client.me.id, "SUDO_USERS", "DB_SUDO"
                     )
                     if client.me.id not in sudo_id:
                         sudo_id.append(client.me.id)
