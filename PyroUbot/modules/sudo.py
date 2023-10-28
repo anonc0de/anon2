@@ -6,6 +6,19 @@ create by: https://t.me/NorSodikin
 
 from PyroUbot import *
 
+__MODULE__ = "sudo"
+__HELP__ = f"""
+<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ʙʟᴀᴄᴋʟɪsᴛ 』</b>
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>addsudo</code>
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴀᴍʙᴀʜᴋᴀɴ ᴜsᴇʀ ᴋᴇ ᴅᴀʟᴀᴍ ᴅᴀғᴛᴀʀ sᴜᴅᴏ
+
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>delsudo</code>
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ᴜsᴇʀ ᴅᴀʀɪ ᴅᴀғᴛᴀʀ sᴜᴅᴏ
+  
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>getsudo</code>
+  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ᴅᴀғᴛᴀʀ sᴜᴅᴏ
+"""
 
 @PY.UBOT("addsudo")
 @PY.TOP_CMD
