@@ -12,4 +12,3 @@ from PyroUbot.core.helpers.yt_dl import *
 from PyroUbot.core.helpers.decorator import *
 from PyroUbot.core.helpers._logs import *
 from PyroUbot.core.helpers.api_anime import *
-from PyroUbot.core.helpers.queues import *
