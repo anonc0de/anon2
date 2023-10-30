@@ -257,6 +257,9 @@ async def run_cmd(cmd):
         process.pid,
     )
 
+def run_sync(func, *args, **kwargs):
+    return get_event_loop().run_in_executor(None, partial(func, *args, **kwargs))
+
 def get_size(bytes, suffix="B"):
     factor = 1024
     for unit in ["", "K", "M", "G", "T", "P"]:
