@@ -3,8 +3,8 @@ from asyncio import QueueEmpty
 from pytgcalls.exceptions import NoActiveGroupCall, NotInGroupCallError
 from pytgcalls.types import StreamAudioEnded, Update
 
-from tomimusic import ubot
-from tomimusic.core.pytgcalls import queues
+from PyroUbot import *
+
 
 
 @ubot.pytgcalls_decorator()
