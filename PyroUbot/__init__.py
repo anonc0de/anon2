@@ -11,6 +11,9 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
+CLIENT_TYPE = pytgcalls.GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
+INPUT_FILENAME = 'input.raw'
+OUTPUT_FILENAME = 'output.raw'
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
@@ -63,7 +66,9 @@ class Ubot(Client):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs, device_model="ᴄᴏɴꜱᴛᴇʀʟʏ ᴜʙᴏᴛ")
-        self.call_py = PyTgCalls()
+        self.vc = pytgcalls.GroupCallFactory(
+           self, CLIENT_TYPE,
+           ).get_file_group_call(INPUT_FILENAME, OUTPUT_FILENAME)
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
