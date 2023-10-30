@@ -2,6 +2,7 @@ git+https://github.com/XtomiX/pyrogram
 tgcrypto
 pytz
 psutil
+py-tgcalls==0.9.7
 motor
 dnspython
 GitPython
