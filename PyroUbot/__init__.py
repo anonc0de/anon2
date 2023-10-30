@@ -6,8 +6,9 @@ from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import CallbackQueryHandler, MessageHandler
 from pyrogram.types import Message
-from pytgcalls import PyTgCalls
 from pyromod import listen
+
+import pytgcalls
 
 from PyroUbot.config import *
 
