@@ -71,22 +71,6 @@ class Ubot(Client):
 
         return decorator
 
-    def pytgcalls_decorator(self):
-        def decorator(func):
-            for ub in self._ubot:
-                try:
-                    if func.__name__ != "stream_end":
-                        ub.call_py.on_kicked()(func)
-                        ub.call_py.on_closed_voice_chat()(func)
-                        ub.call_py.on_left()(func)
-                    else:
-                        ub.call_py.on_stream_end()(func)
-                except:
-                    pass
-            return func
-
-        return decorator
-
     def set_prefix(self, user_id, prefix):
         self._prefix[user_id] = prefix
 
