@@ -12,28 +12,23 @@ from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio, HighQualityVideo
 from yt_dlp import YoutubeDL
 
-from tomimusic import bot, ubot
-from tomimusic.config import *
-from tomimusic.config import PREFIX
-from tomimusic.core.pytgcalls import queues
-from tomimusic.misc import CPREM
-from tomimusic.utils import run_sync
-from tomimusic.utils.unpack import unpackInlineMessage
-from tomimusic.utils.youtube_search import YouTubeSearch
+from PyroUbot import *
 
 # from tomimusic.utils import require_admin
 # @require_admin("can_manage_video_chats", "Hak admin yang diperlukan: <code>Manage Live Streams</code>",)
 
 
-__MODULE__ = "MUSIC"
+__MODULE__ = "music"
 __HELP__ = "ㅤ"
 
 
 play_id = []
 
 
-@ubot.on_message(CPREM & filters.group & filters.command("play", "?"))
-@ubot.on_message(filters.me & filters.group & filters.command("play", PREFIX))
+
+@PY.UBOT("play")
+@PY.GROUP
+@PY.OWNER
 async def _(client, message: Message):
     if message.reply_to_message:
         if len(message.command) < 2:
