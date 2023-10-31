@@ -95,28 +95,31 @@ async def broadcast_users_cmd(client, message):
 
 
 async def broadcast_bot(client, message):
-    susr = 0
-    served_users = []
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ", quote=True)
+
+    send = get_message(message)
+    if not send:
+        return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
+        
     susers = await get_list_from_vars(client.me.id, "SAVED_USERS")
-    for i in susers:
+    for chat_id in susers:
         try:
-            m = (
-                await bot.forward_messages(i, y, x)
-                if message.reply_to_message
-                else await bot.send_message(i, text=query)
-            )
-            susr += 1
+            if message.reply_to_message:
+                await send.copy(chat_id)
+            else:
+                await client.send_message(chat_id, send)
+            done += 1
         except FloodWait as e:
-            flood_time = int(e.x)
-            if flood_time > 200:
-                 continue
-            await asyncio.sleep(flood_time)
+            await asyncio.sleep(e.value)
+            if message.reply_to_message:
+                await send.copy(chat_id)
+            else:
+                await client.send_message(chat_id, send)
+            done += 1
         except Exception:
             pass
-    try:
-        await message.reply(f"done {susr}")
-    except:
-        pass
+
+    return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {done} ᴜsᴇʀs</b>")
 
 async def send_msg_cmd(client, message):
     if message.reply_to_message:
