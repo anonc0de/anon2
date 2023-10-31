@@ -102,6 +102,7 @@ async def broadcast_bot(client, message):
         return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
         
     susers = await get_list_from_vars(client.me.id, "SAVED_USERS")
+    done = 0
     for chat_id in susers:
         try:
             if message.reply_to_message:
