@@ -29,6 +29,8 @@ connection_handler = ConnectionHandler()
 logger.addHandler(stream_handler)
 logger.addHandler(connection_handler)
 
+aiosession = ClientSession()
+
 
 class Bot(Client):
     def __init__(self, **kwargs):
