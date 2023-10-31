@@ -1,4 +1,3 @@
-import aiosession
 from io import BytesIO
 
 from PyroUbot import *
