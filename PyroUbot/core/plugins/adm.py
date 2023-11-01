@@ -155,7 +155,7 @@ async def global_banned(client, message):
             
             if prik in DEVS:
                 return await Tm.edit(
-                    "ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪꜱᴀ ɢʙᴀɴ ᴅɪᴀ ᴋᴀʀᴇɴᴀ ᴅɪᴀ ᴘᴇᴍʙᴜᴀᴛ ꜱᴀʏᴀ."
+                    "ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ɢʙᴀɴ ᴍʏ ɢᴏᴅ,ᴋᴀʀᴇɴᴀ ᴅɪᴀ ʏɢ ᴍᴇɴᴄɪᴘᴛᴀᴋᴀɴ sᴀʏᴀ."
                 )
             elif prik in prok:
                 return await Tm.edit(
