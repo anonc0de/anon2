@@ -1,9 +1,6 @@
 import os
 
-DEVS = [
-    6629259024,
-    2066017531,
-]
+DEVS = list(map(int, os.getenv("DEVS", "6629259024 2066017531").split()))
 
 API_ID = int(os.getenv("API_ID", "24623085"))
 
