@@ -1,12 +1,13 @@
-FROM ohshin/ubot:dev
+FROM nikolaik/python-nodejs:python3.10-nodejs18
 
-WORKDIR /app
-RUN pip3 install -U pip
+RUN apt-get update -y && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends ffmpeg neofetch \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+WORKDIR /app/
+COPY . /app/
 
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install -U -r req*
 
-COPY . .
-
-CMD ["python", "-m", "PyroUbot"]
+CMD bash start
