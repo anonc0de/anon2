@@ -4,13 +4,13 @@ __MODULE__ = "notes"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɴᴏᴛᴇs 』</b>
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>addnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ - ʀᴇᴘʟʏ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>save</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ - ʀᴇᴘʟʏ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴʏɪᴍᴘᴀɴ sᴇʙᴜᴀʜ ᴄᴀᴛᴀᴛᴀɴ
 
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>get</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴᴅᴀᴘᴀᴛᴋᴀɴ ᴄᴀᴛᴀᴛᴀɴ ʏᴀɴɢ ᴅɪsɪᴍᴘᴀɴ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>delnote</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>rm</code> [ɴᴏᴛᴇ_ɴᴀᴍᴇ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢʜᴀᴘᴜs ᴄᴀᴛᴀᴛᴀɴ
 
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>notes</code>
@@ -21,7 +21,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("addnote", sudo=True)
+@PY.UBOT("save", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await addnote_cmd(client, message)
@@ -39,7 +39,7 @@ async def _(client, inline_query):
     await get_notes_button(client, inline_query)
 
 
-@PY.UBOT("delnote", sudo=True)
+@PY.UBOT("rm", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await delnote_cmd(client, message)
