@@ -28,10 +28,11 @@ async def alive_query(client, inline_query):
                 users = random.randrange(await my.get_dialogs_count())
                 group = random.randrange(await my.get_dialogs_count())
             get_exp = await get_expired_date(my.me.id)
+            exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[˹ᴀ̷ɴσɴ˼]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘍𝘰𝘶𝘯𝘥𝘦𝘳]</code>"
             elif my.me.id in await get_seles():
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[Villager]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘈𝘥𝘮𝘪𝘯]</code>"
             else:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b>"
             button = Button.alive(get_id)
