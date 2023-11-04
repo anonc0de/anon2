@@ -29,7 +29,7 @@ async def ping_cmd(client, message):
 """
     else:
         _ping = f"""
-<b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b>sɪɢɴᴀʟ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
 <b>ᴍᴇɴᴛɪᴏɴ:</b> <code>{client.me.mention}</code>
 """
     await message.reply(_ping)
