@@ -20,12 +20,12 @@ async def ping_cmd(client, message):
     delta_ping = (end - start).microseconds / 1000
     emot_1 = await get_vars(client.me.id, "EMOJI_PING")
     emot_2 = await get_vars(client.me.id, "EMOJI_MENTION")
-    emot_signal = emot_1 if emot_1 else "5269563867305879894"
-    emot_owner = emot_2 if emot_2 else "6226371543065167427"
+    emot_pong = emot_1 if emot_1 else "5269563867305879894"
+    emot_mention = emot_2 if emot_2 else "6226371543065167427"
     if client.me.is_premium:
         _ping = f"""
-<b><emoji id={emot_signal}>🏓</emoji>sɪɢɴᴀʟ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id={emot_owner}>👑</emoji>ᴏᴡɴᴇʀ:</b> <code>{client.me.mention}</code>
+<b><emoji id={emot_pong}>🏓</emoji>sɪɢɴᴀʟ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b><emoji id={emot_mention}>👑</emoji>ᴏᴡɴᴇʀ:</b> <code>{client.me.mention}</code>
 """
     else:
         _ping = f"""
