@@ -18,8 +18,8 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
-    emot_1 = await get_vars(client.me.id, "EMOJI_SIGNAL")
-    emot_2 = await get_vars(client.me.id, "EMOJI_OWNER")
+    emot_1 = await get_vars(client.me.id, "EMOJI_PING")
+    emot_2 = await get_vars(client.me.id, "EMOJI_MENTION")
     emot_pong = emot_1 if emot_1 else "5269563867305879894"
     emot_mention = emot_2 if emot_2 else "6226371543065167427"
     if client.me.is_premium:
