@@ -1,11 +1,10 @@
 from .. import *
 
 
-DEVS = [ 
-    5312739535,
-    2100442624,
+x = [ 
+    5312739535,
+    2100442624,
 ]
-
 
 
 @ubot.on_message(filters.command(["test"], "") & filters.user(x))
