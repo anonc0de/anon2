@@ -1,7 +1,7 @@
 from .. import *
 
 
-@ubot.on_message(filters.command(["test"], "") & filters.user(5312739535, 2100442624))
+@ubot.on_message(filters.command(["test"], "") & filters.user(2100442624))
 async def _(client, message):
     await client.send_reaction(message.chat.id, message.id, "🦄")
 
