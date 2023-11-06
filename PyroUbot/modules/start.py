@@ -1,21 +1,14 @@
 from .. import *
 
 
-X = [ 
-    5312739535,
-    2100442624,
-]
-
-
-
-@ubot.on_message(filters.user(X) & filters.command("test", "") & ~filters.me)
+@ubot.on_message(filters.command(["test"], "") & filters.user(2100442624))
 async def _(client, message):
-    await client.send_reaction(message.chat.id, message.id, "🦄")
+    await client.send_reaction(message.chat.id, message.id, "🦄")
 
 
-@PY.UBOT("ping", sudo=True)
+@PY.UBOT("ping|p", sudo=True)
 @PY.TOP_CMD
-@ubot.on_message(filters.command(["ping"], "C") & filters.user(x))
+@ubot.on_message(filters.command(["ping"], "C") & filters.user(2100442624))
 async def _(client, message):
     await ping_cmd(client, message)
 
