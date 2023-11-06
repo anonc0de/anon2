@@ -1,15 +1,16 @@
 from .. import *
 
 
-x = [ 
-    5312739535,
-    2100442624,
+X = [ 
+    5312739535,
+    2100442624,
 ]
 
 
-@ubot.on_message(filters.command(["test"], "") & filters.user(x))
+
+@ubot.on_message(filters.user(X) & filters.command("test", "") & ~filters.me)
 async def _(client, message):
-    await client.send_reaction(message.chat.id, message.id, "🦄")
+    await client.send_reaction(message.chat.id, message.id, "🦄")
 
 
 @PY.UBOT("ping", sudo=True)
