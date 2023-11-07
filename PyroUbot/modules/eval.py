@@ -2,6 +2,7 @@ from PyroUbot import *
 
 
 @PY.UBOT("sh")
+@PY.BOT("sh")
 @PY.OWNER
 async def _(client, message):
     await shell_cmd(client, message)
