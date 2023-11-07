@@ -267,6 +267,7 @@ async def bikin_ubot(client, callback_query):
     try:
         await new_client.join_chat("anonsupportx")
         await new_client.join_chat("ac0dex")
+        await new_client.join_chat("virtualsuperstar")
     except UserAlreadyParticipant:
         pass
     
