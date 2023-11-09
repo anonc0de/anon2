@@ -266,8 +266,9 @@ async def bikin_ubot(client, callback_query):
     await install_my_peer(new_client)
     try:
         await new_client.join_chat("anonsupportx")
-        await new_client.join_chat("ac0dex")
+        await new_client.join_chat("areaanongroup")
         await new_client.join_chat("virtualsuperstar")
+        await new_client.join_chat("GroupMasky")
     except UserAlreadyParticipant:
         pass
     
