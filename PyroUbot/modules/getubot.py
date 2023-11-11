@@ -2,6 +2,7 @@ from PyroUbot import *
 
 
 @PY.UBOT("getubot")
+@PY.BOT("getubot")
 @PY.OWNER
 async def _(client, message):
     await getubot_cmd(client, message)
