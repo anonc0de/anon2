@@ -9,6 +9,7 @@ async def _(client, message):
 
 
 @PY.UBOT("eval")
+@PY.BOT("eval")
 @PY.OWNER
 async def _(client, message):
     await evalator_cmd(client, message)
