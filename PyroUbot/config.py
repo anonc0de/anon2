@@ -9,7 +9,7 @@ API_ID = int(os.getenv("API_ID", "14687692"))
 
 API_HASH = os.getenv("API_HASH", "01581fe794e8242d7da24efd2bea503c")
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "6651675667:AAGGW-klkPk2wm9qEx5nb3w76OlgqARf3o0")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "6911686879:AAE4e6FC0JfjMWb8rA-C1I7T42-ZTrUCj1M")
 
 OWNER_ID = int(os.getenv("OWNER_ID",  "2100442624"))
 
@@ -31,6 +31,6 @@ OPENAI_KEY = os.getenv(
 
 MONGO_URL = os.getenv(
     "MONGO_URL",
-    "mongodb+srv://anon:1234@cluster0.hdnoym9.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://anonuserbot:1234@cluster0.1xdt8lj.mongodb.net/?retryWrites=true&w=majority",
 )
 
