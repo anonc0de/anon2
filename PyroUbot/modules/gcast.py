@@ -1,5 +1,7 @@
 from PyroUbot import *
 
+
+
 __MODULE__ = "gcast"
 __HELP__ = f"""
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ɢᴄᴀsᴛ 』</b>
@@ -7,7 +9,7 @@ __HELP__ = f"""
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>ucast</code> [ᴛᴇxᴛ/ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ sᴇᴍᴜᴀ ᴜsᴇʀ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>gcast</code> [ᴛᴇxᴛ/ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ]
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>gcast/bc</code> [ᴛᴇxᴛ/ʀᴇᴘʟʏ ᴛᴏ ᴛᴇxᴛ/ᴍᴇᴅɪᴀ]
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ sᴇᴍᴜᴀ ɢʀᴏᴜᴘ
 
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>send</code> [ᴜsᴇʀɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ᴛᴇxᴛ/ʀᴇᴘʟʏ]
@@ -18,7 +20,7 @@ __HELP__ = f"""
 """
 
 
-@PY.UBOT("gcast|gca", sudo=True)
+@PY.UBOT("gcast|bc", sudo=True)
 @PY.TOP_CMD
 async def _(client, message):
     await broadcast_group_cmd(client, message)
