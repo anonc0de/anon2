@@ -6,7 +6,7 @@ from pyrogram.errors.exceptions import FloodWait
 
 from PyroUbot import *
 from PyroUbot.config import *
-
+from asyncio import sleep
 
 
 async def get_broadcast_id(client, query):
@@ -41,6 +41,7 @@ async def broadcast_group_cmd(client, message):
             continue
 
         try:
+            await asyncio sleep(0.5)
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
